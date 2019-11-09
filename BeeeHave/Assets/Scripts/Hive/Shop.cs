@@ -14,7 +14,6 @@ public class Shop : MonoBehaviour
   [SerializeField] float[] carryStatUpgradePrice;
 
   [SerializeField] GameObject beePrefab = null;
-  [SerializeField] GameObject bearPrefab = null;
   [SerializeField] GameObject flowerPrefab = null;
 
   bool playerIsIn;
@@ -130,7 +129,7 @@ public class Shop : MonoBehaviour
 
   public void BuyFlower()
   {
-    Instantiate(flowerPrefab);
+      
   }
 
   public void GenerateFlowerSpawnLocation()
