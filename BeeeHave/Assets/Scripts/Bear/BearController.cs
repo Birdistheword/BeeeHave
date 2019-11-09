@@ -52,7 +52,10 @@ public class BearController : MonoBehaviour
             // Damage the Hive
             didDamage = true;
             Hive.GetComponent<Hive>().health -= currentHealth;
-            
+
+            // Need Attack Animation
+            transform.position = Vector3.MoveTowards(transform.position, BearTarget.position, movSpeed * Time.deltaTime);
+
         }
 
 
@@ -83,6 +86,7 @@ public class BearController : MonoBehaviour
             currentHealth = HealthPool[Random.Range(0, HealthPool.Length)];
     }
 
+    // This method is called from GuardBeeController and the Player
     public void TakeDamage(int _damage)
     {
         currentHealth -= _damage;
