@@ -285,6 +285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6236346554008644946}
+  - component: {fileID: 399327161}
   m_Layer: 0
   m_Name: GuardBee
   m_TagString: Untagged
@@ -299,7 +300,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6236346554008644947}
-  m_LocalRotation: {x: -0, y: -0.90486073, z: -0, w: 0.42570782}
+  m_LocalRotation: {x: 0, y: -0.9048606, z: 0, w: 0.42570814}
   m_LocalPosition: {x: -9.35, y: 1.65, z: 19.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -311,6 +312,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -129.60901, z: 0}
+--- !u!114 &399327161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6236346554008644947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd1d1f840aade84998b7390f826b5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6236346554195362429
 GameObject:
   m_ObjectHideFlags: 0
