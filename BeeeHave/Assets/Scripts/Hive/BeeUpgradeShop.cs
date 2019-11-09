@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class BeeUpgradeShop : MonoBehaviour
 {
   [SerializeField] ShopType shopType;
   [SerializeField] Canvas shopUI;
+
+  [SerializeField] Text speedStatText;
+  [SerializeField] Text efficiencyStatText;
+  [SerializeField] Text carryStatText;
 
   [SerializeField] int[] speedStatUpgradePrice;
   [SerializeField] int[] efficiencyStatUpgradePrice;
@@ -42,21 +47,44 @@ public class BeeUpgradeShop : MonoBehaviour
     pollenManager = FindObjectOfType<PollenManager>();
     hive = FindObjectOfType<Hive>();
     statManager = FindObjectOfType<StatManager>();
+    UpdatePriceTexts(speedStatUpgradePrice[0].ToString(), efficiencyStatUpgradePrice[0].ToString(), carryStatUpgradePrice[0].ToString());
+  }
+
+  private void UpdatePriceTexts(string speedParameter, string efficiencyParameter, string carryParameter)
+  {
+    UpdateSpeedPriceText(speedParameter);
+    UpdateEfficiencyPriceText(efficiencyParameter);
+    UpdateCarryPriceText(carryParameter);
+  }
+  private void UpdateSpeedPriceText(string speedParameter)
+  {
+    print("Update speed price text to" + speedParameter);
+    speedStatText.text = speedParameter.ToString();
+  }
+
+  private void UpdateEfficiencyPriceText(string efficiencyParameter)
+  {
+    efficiencyStatText.text = efficiencyParameter.ToString();
+  }
+
+  private void UpdateCarryPriceText(string carryParameter)
+  {
+    carryStatText.text = carryParameter.ToString();
   }
 
   private void Update()
   {
     if (speedMaxed)
     {
-      shopUI.transform.GetChild(0).GetComponent<Button>().interactable = false;
+      shopUI.transform.GetChild(1).GetComponent<Button>().interactable = false;
     }
     if (efficiencyMaxed)
     {
-      shopUI.transform.GetChild(1).GetComponent<Button>().interactable = false;
+      shopUI.transform.GetChild(2).GetComponent<Button>().interactable = false;
     }
     if (carryMaxed)
     {
-      shopUI.transform.GetChild(2).GetComponent<Button>().interactable = false;
+      shopUI.transform.GetChild(3).GetComponent<Button>().interactable = false;
     }
     if (playerIsIn && Input.GetKeyDown(KeyCode.Q))
     {
@@ -86,8 +114,21 @@ public class BeeUpgradeShop : MonoBehaviour
       canBuyItem = true;
     }
     if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
-    pollenManager.AddPollen(-speedStatUpgradePrice[statManager.GetSpeedStatLevel() - 1]);
+
+    int nextLevelPrice = speedStatUpgradePrice[statManager.GetSpeedStatLevel()];
+
+    pollenManager.AddPollen(-itemPrice);
     statManager.AddSpeedStat();
+
+    if (speedStatUpgradePrice.Length - 1 >= statManager.GetSpeedStatLevel())
+    {
+      UpdateSpeedPriceText(nextLevelPrice.ToString());
+    }
+    else
+    {
+      UpdateSpeedPriceText("");
+    }
+
     if (statManager.GetSpeedStatLevel() >= speedStatUpgradePrice.Length)
     {
       speedMaxed = true;
@@ -104,8 +145,21 @@ public class BeeUpgradeShop : MonoBehaviour
       canBuyItem = true;
     }
     if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
-    pollenManager.AddPollen(-speedStatUpgradePrice[statManager.GetEfficiencyStatLevel() - 1]);
+
+    int nextLevelPrice = speedStatUpgradePrice[statManager.GetEfficiencyStatLevel()];
+
+    pollenManager.AddPollen(-itemPrice);
     statManager.AddEfficiencyStat();
+
+    if (speedStatUpgradePrice.Length - 1 >= statManager.GetEfficiencyStatLevel())
+    {
+      UpdateEfficiencyPriceText(nextLevelPrice.ToString());
+    }
+    else
+    {
+      UpdateEfficiencyPriceText("");
+    }
+
     if (statManager.GetEfficiencyStatLevel() >= speedStatUpgradePrice.Length)
     {
       efficiencyMaxed = true;
@@ -121,8 +175,21 @@ public class BeeUpgradeShop : MonoBehaviour
       canBuyItem = true;
     }
     if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
-    pollenManager.AddPollen(-speedStatUpgradePrice[statManager.GetCarryStatLevel() - 1]);
+
+    int nextLevelPrice = speedStatUpgradePrice[statManager.GetCarryStatLevel()];
+
+    pollenManager.AddPollen(-itemPrice);
     statManager.AddCarryStat();
+
+    if (speedStatUpgradePrice.Length - 1 >= statManager.GetCarryStatLevel())
+    {
+      UpdateCarryPriceText(nextLevelPrice.ToString());
+    }
+    else
+    {
+      UpdateCarryPriceText("");
+    }
+
     if (statManager.GetCarryStatLevel() >= speedStatUpgradePrice.Length)
     {
       carryMaxed = true;
