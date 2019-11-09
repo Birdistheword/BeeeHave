@@ -12,10 +12,21 @@ public class PlayerMovement : MonoBehaviour
   [SerializeField] float maxAccelerationMultiplier = 2;
   [SerializeField] float timeUpdater = 0.8f;
 
+  [SerializeField] float speedStat;
+  [SerializeField] float speedStatMultiplicator = 1.5f;
+
   [SerializeField] float movementRestriction;
+
+  StatManager statManager;
+
+  private void Start()
+  {
+    statManager = GetComponent<StatManager>();
+  }
 
   void Update()
   {
+    speedStat = speedStatMultiplicator * statManager.GetSpeedStatLevel();
     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
     {
       accelerationMultiplier = 1;
@@ -26,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
       accelerationMultiplier += Time.deltaTime * timeUpdater;
       accelerationMultiplier = Mathf.Clamp(accelerationMultiplier, 1, maxAccelerationMultiplier);
     }
-    speed = normalSpeed;
+    speed = normalSpeed * speedStat;
 
     float x = Input.GetAxis("Horizontal");
     float z = Input.GetAxis("Vertical");
@@ -42,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     }
     else
     {
-      speed = normalSpeed;
+      speed = normalSpeed * speedStat;
     }
 
     characterController.Move(moveForward * Time.deltaTime * speed * accelerationMultiplier);
