@@ -7,10 +7,11 @@ public class BearController : MonoBehaviour
     [SerializeField]
     Transform BearTarget;
     [SerializeField]float movSpeed = 3f;
+    [SerializeField] GameObject Hive;
 
 
     [HideInInspector]
-    public bool startAttacking = false, isAttacking = false;
+    public bool startAttacking = false, isAttacking = false, didDamage = false;
     private bool firstAttack = true;
 
     private int[] HealthPool = { 1, 1, 2, 2, 2, 3, 3, 3, 4 };
@@ -25,7 +26,7 @@ public class BearController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startAttacking) StartAttack();
+        if (GS.STATE == GameStates.GameState.BearStartAttack) StartAttack();
 
         if(isAttacking)
         {
@@ -33,20 +34,26 @@ public class BearController : MonoBehaviour
 
             if(Vector3.Distance(BearTarget.position, transform.position) <= 1f)
             {
-                if(currentHealth <= 0)
-                {
-
-                }
+                GS.STATE = GameStates.GameState.BearAtHive;
             }
         }
 
-       
+        if (GS.STATE == GameStates.GameState.DamagePhase && didDamage == false)
+        {
+            // Damage the Hive
+            didDamage = true;
+            Hive.GetComponent<Hive>().health -= currentHealth;
+            
+        }
+
+
+
     }
 
     private void StartAttack()
     {
+        GS.STATE = GameStates.GameState.BearMovingToHive;
         SetHealth();
-        startAttacking = false;
         isAttacking = true;
         Debug.Log(currentHealth);
 

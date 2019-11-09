@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hive : MonoBehaviour
 {
   bool playerisIn;
+    public int health = 10;
 
   private void OnTriggerEnter(Collider other)
   {

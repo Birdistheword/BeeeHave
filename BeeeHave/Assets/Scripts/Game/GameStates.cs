@@ -8,6 +8,7 @@ public class GameStates : MonoBehaviour
     {
         Idle,
         BearStartAttack,
+        BearMovingToHive,
         BearAtHive,
         DamagePhase,
         LoseCondition,
