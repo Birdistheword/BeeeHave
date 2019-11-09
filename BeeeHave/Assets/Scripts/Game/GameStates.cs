@@ -11,8 +11,10 @@ public class GameStates : MonoBehaviour
         BearMovingToHive,
         BearAtHive,
         DamagePhase,
+        DidDamage,
         LoseCondition,
-        BearRetreat
+        BearRetreat,
+        ResetTimer
     }
 
     public GameState STATE =  GameState.Idle;

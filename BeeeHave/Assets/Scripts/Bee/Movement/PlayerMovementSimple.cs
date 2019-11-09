@@ -50,7 +50,6 @@ public class PlayerMovementSimple : MonoBehaviour
             if(Movement != Vector3.zero)
             {
                 Movement = Quaternion.Euler(0f, 45f, 0f) * Move;
-                Debug.Log("Fixing rotation!");
             }
             
             rb.velocity = Movement;
@@ -59,7 +58,6 @@ public class PlayerMovementSimple : MonoBehaviour
             if (Movement != Vector3.zero)
             {
                 transform.forward = Vector3.Lerp(transform.forward, Movement, rotationSpeed * Time.fixedDeltaTime);
-                Debug.Log("Rotating");
             }
                 
         }

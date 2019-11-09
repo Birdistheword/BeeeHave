@@ -285,6 +285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6236346554008644946}
+  - component: {fileID: 6819014836792882775}
   m_Layer: 0
   m_Name: GuardBee
   m_TagString: Untagged
@@ -311,6 +312,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -129.60901, z: 0}
+--- !u!114 &6819014836792882775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6236346554008644947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd1d1f840aade84998b7390f826b5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BearPrefab: {fileID: 8597439923405230723, guid: 11458c4336098704984103da56ebf309,
+    type: 3}
+  damage: 1
 --- !u!1 &6236346554195362429
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class Hive : MonoBehaviour
   }
     private void Start()
     {
-        GS = GameObject.FindObjectOfType<GameStates>();
+        GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
     }
 
     // IF health is 0 or below, toggle lose condition Game State
@@ -37,5 +37,11 @@ public class Hive : MonoBehaviour
         {
             GS.STATE = GameStates.GameState.LoseCondition;
         }
+    }
+
+    public void TakeDamage(int _dmg)
+    {
+        health -= _dmg;
+        print("Took" + _dmg + "damage");
     }
 }
