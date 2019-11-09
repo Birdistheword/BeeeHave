@@ -95,4 +95,9 @@ public class PlayerMovementSimple : MonoBehaviour
         dashing = false;
     }
 
+    public void IncreaseSpeed(float speedMultiplier)
+    {
+        moveSpeed = moveSpeed * speedMultiplier;
+    }
+
 }
