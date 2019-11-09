@@ -13,6 +13,10 @@ public class Shop : MonoBehaviour
   [SerializeField] float[] efficiencyStatUpgradePrice;
   [SerializeField] float[] carryStatUpgradePrice;
 
+  [SerializeField] GameObject beePrefab = null;
+  [SerializeField] GameObject bearPrefab = null;
+  [SerializeField] GameObject flowerPrefab = null;
+
   bool playerIsIn;
   bool canBuyUpgrade;
 
@@ -117,6 +121,26 @@ public class Shop : MonoBehaviour
     {
       carryMaxed = true;
     }
+  }
+
+  public void BuyBearRepelent()
+  {
+
+  }
+
+  public void BuyFlower()
+  {
+    Instantiate(flowerPrefab);
+  }
+
+  public void GenerateFlowerSpawnLocation()
+  {
+
+  }
+
+  public void BuyBeeDefender()
+  {
+
   }
 
   public void OpenShop()
