@@ -85,6 +85,7 @@ public class PlayerMovementSimple : MonoBehaviour
       dashCd = dashCooldown;
     }
 
+
   }
 
   private IEnumerator StopDash()
@@ -96,5 +97,6 @@ public class PlayerMovementSimple : MonoBehaviour
     rb.velocity = Vector3.zero;
     dashing = false;
   }
+
 
 }
