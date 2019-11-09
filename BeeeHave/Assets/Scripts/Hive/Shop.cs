@@ -25,6 +25,7 @@ public class Shop : MonoBehaviour
 
   StatManager player;
   PollenManager pollenManager;
+  FlowerSpawner flowerSpawner;
 
   private void OnTriggerEnter(Collider other)
   {
@@ -37,6 +38,7 @@ public class Shop : MonoBehaviour
   private void Start()
   {
     shopUI.enabled = false;
+    flowerSpawner = FindObjectOfType<FlowerSpawner>();
   }
 
   private void Update()
@@ -129,12 +131,7 @@ public class Shop : MonoBehaviour
 
   public void BuyFlower()
   {
-      
-  }
-
-  public void GenerateFlowerSpawnLocation()
-  {
-
+    flowerSpawner.SpawnFlower(flowerPrefab);
   }
 
   public void BuyBeeDefender()
