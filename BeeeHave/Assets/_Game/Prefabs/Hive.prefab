@@ -171,6 +171,9 @@ MonoBehaviour:
   - 30
   - 40
   - 50
+  beePrefab: {fileID: 0}
+  bearPrefab: {fileID: 0}
+  flowerPrefab: {fileID: 0}
 --- !u!1 &6395999648978366274
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,8 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86dd3a2ed06e8fc42afe7177edb98979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstShopCollider: {fileID: 6395999649961984777}
-  secondShopCollider: {fileID: 0}
 --- !u!1 &6395999649067752656
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +314,9 @@ MonoBehaviour:
   - 30
   - 40
   - 50
+  beePrefab: {fileID: 0}
+  bearPrefab: {fileID: 0}
+  flowerPrefab: {fileID: 0}
 --- !u!1 &6395999649281110897
 GameObject:
   m_ObjectHideFlags: 0
