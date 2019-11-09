@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6cb40694b81ba4f9cda32b725479df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pollen: 10000
+  pollen: 1000000
 --- !u!54 &908697067
 Rigidbody:
   m_ObjectHideFlags: 0

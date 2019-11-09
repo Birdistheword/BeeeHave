@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PollenManager : MonoBehaviour
 {
-  [SerializeField] float pollen;
+  [SerializeField] int pollen;
 
-  public float GetPollenCount()
+  public int GetPollenCount()
   {
     return pollen;
   }
 
-  public void AddPollen(float pollenAmount)
+  public void AddPollen(int pollenAmount)
   {
     pollen += pollenAmount;
   }

@@ -7,7 +7,7 @@ public class Flower : MonoBehaviour
 {
   [SerializeField] float timeToReceivePollen = 2f;
   [SerializeField] float timeSinceEnteredCollider;
-  [SerializeField] float pollenAmount = 10;
+  [SerializeField] int pollenAmount = 10;
 
   bool pollenReadyToGive;
   bool playerIsIn;
@@ -65,7 +65,7 @@ public class Flower : MonoBehaviour
     }
   }
 
-  private void GivePollen(float pollenAmount, Collider other)
+  private void GivePollen(int pollenAmount, Collider other)
   {
     other.GetComponent<PollenManager>().AddPollen(pollenAmount);
     print(other.name + " received " + pollenAmount + " pollen");

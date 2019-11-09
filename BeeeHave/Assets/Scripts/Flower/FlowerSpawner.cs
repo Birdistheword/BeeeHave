@@ -15,17 +15,34 @@ public class FlowerSpawner : MonoBehaviour
   [SerializeField] List<FlowerSpawnPoint> flowerPointList;
   GameObject flowerSpawnPoint;
 
+  int flowerCount;
+  bool flowersMaxed = false;
+
   public void SpawnFlower(GameObject flowerPrefab)
   {
-    int i = Random.Range(0, flowerPointList.Count);
-    int j = Random.Range(0, flowerPointList.Count);
-    if (i <= 0)
+    int i = Random.Range(-1, flowerPointList.Count);
+    if (i < 0)
     {
-      print("no more places to spawn a flower");
       return;
     }
     Instantiate(flowerPrefab, flowerPointList[i].transform.position, Quaternion.identity);
+    flowerCount++;
+    if (flowerCount == xRange * yRange)
+    {
+      print("max Amount of flowers reached");
+      flowersMaxed = true;
+    }
     flowerPointList.Remove(flowerPointList[i]);
+  }
+
+  public bool FlowersMaxed()
+  {
+    return flowersMaxed;
+  }
+
+  public int GetFlowerCount()
+  {
+    return flowerCount;
   }
 
   private void Start()
