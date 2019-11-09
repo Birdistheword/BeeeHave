@@ -35,6 +35,7 @@ public class Shop : MonoBehaviour
     if (other.tag == "Player")
     {
       playerIsIn = false;
+      CloseShop();
     }
   }
 
