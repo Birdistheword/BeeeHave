@@ -30,7 +30,6 @@ public class DefenseBeeManager : MonoBehaviour
         {
             //Changes behavious of guard bees
             GS.STATE = GameStates.GameState.ThereIsGuardBees;
-            print(amountOfCurrentBees);
             print("There is guard bees");
         }
 
@@ -41,16 +40,22 @@ public class DefenseBeeManager : MonoBehaviour
         if(amountOfCurrentBees < 5)
         {
             GameObject Bee = Instantiate(GuardbeePrefab, SpawnPoints[SpCounter].position, Quaternion.identity);
-            SpCounter++;
-            amountOfCurrentBees++;
+            if(Bee != null)
+            {
+                SpCounter++;
+                amountOfCurrentBees++;
+            }
+            
         }
         
     }
 
     public void BeeDied()
     {
-        amountOfCurrentBees--;
+        if(amountOfCurrentBees > 0)
+            amountOfCurrentBees = amountOfCurrentBees - 1;
         print("Amount of current bees: " + amountOfCurrentBees);
-        SpCounter--;
+        if(SpCounter > 0 )SpCounter = SpCounter - 1;
+        print("SpCounter: " + SpCounter);
     }
 }

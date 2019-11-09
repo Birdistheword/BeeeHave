@@ -203,6 +203,63 @@ Canvas:
     type: 3}
   m_PrefabInstance: {fileID: 836874393}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &142147029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8400362910381661471, guid: 992102f65787aa4408fb69bc805ac2f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1666759699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &142147030
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142147029}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &474026966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8400362909675496817, guid: 992102f65787aa4408fb69bc805ac2f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1666759699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &474026967
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474026966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &576714773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8400362910233180386, guid: 992102f65787aa4408fb69bc805ac2f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1666759699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &576714774
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576714773}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!223 &668691980 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 1274690524, guid: 38235922cc5e97f4a9b9de68c262a8d2,
@@ -600,6 +657,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   STATE: 0
+--- !u!1 &1311697897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1137661756, guid: 992102f65787aa4408fb69bc805ac2f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1666759699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1311697898
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311697897}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1523215094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -988,6 +1064,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1666759699}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1674926615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8400362909663916570, guid: 992102f65787aa4408fb69bc805ac2f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1666759699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1674926616
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674926615}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1680569816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1313,6 +1408,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuardBee
       objectReference: {fileID: 0}
+    - target: {fileID: 6236346554008644947, guid: ea1525d742f1f7148836c25a19c19614,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6236346554008644946, guid: ea1525d742f1f7148836c25a19c19614,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1387,5 +1487,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8.78
+  m_Radius: 2.12
   m_Center: {x: 0, y: 0, z: 0}

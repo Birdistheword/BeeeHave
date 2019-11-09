@@ -54,21 +54,12 @@ public class GuardBeeController : MonoBehaviour
         {
             GS.STATE = GameStates.GameState.DamagePhase;
             BearPrefab.GetComponent<BearController>().TakeDamage(damage);
-            
             BeeManager.GetComponent<DefenseBeeManager>().BeeDied();
-
+            print("Bee died event");
             Destroy(gameObject);
         }
         
     }
 
-   /* private void OnTriggerStay(Collider other)
-    {
-        if(other.tag == "Bear")
-        {
-            transform.position = Vector3.MoveTowards(transform.position, other.transform.position, 1f);
-        }
-        
-    }*/
 
 }
