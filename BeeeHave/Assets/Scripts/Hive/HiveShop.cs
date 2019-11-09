@@ -9,6 +9,10 @@ public class HiveShop : MonoBehaviour
   [SerializeField] ShopType shopType;
   [SerializeField] Canvas shopUI;
 
+  [SerializeField] Text beeGuardCostText;
+  [SerializeField] Text flowerCostText;
+  [SerializeField] Text bearRepelentCostText;
+
   [SerializeField] int flowerBuyPrice = 10;
   [SerializeField] int flowerPriceAdder = 1;
 
@@ -47,13 +51,15 @@ public class HiveShop : MonoBehaviour
     pollenManager = FindObjectOfType<PollenManager>();
     hive = FindObjectOfType<Hive>();
     statManager = FindObjectOfType<StatManager>();
+    SetFlowerText(flowerBuyPrice.ToString());
+    SetBearRepelentText(bearRepelentPrice[bearRepelentsUsed].ToString());
   }
 
   private void Update()
   {
     if (beeGuardAmount >= maxBeeGuards)
     {
-      shopUI.transform.GetChild(0).GetComponent<Button>().interactable = false;
+      shopUI.transform.GetChild(1).GetComponent<Button>().interactable = false;
     }
 
     if (playerIsIn && Input.GetKeyDown(KeyCode.Q))
@@ -64,6 +70,21 @@ public class HiveShop : MonoBehaviour
     {
       CloseShop();
     }
+  }
+
+  public void SetBeeText(string priceAmount)
+  {
+    beeGuardCostText.text = priceAmount;
+  }
+
+  public void SetFlowerText(string priceAmount)
+  {
+    flowerCostText.text = priceAmount;
+  }
+
+  public void SetBearRepelentText(string priceAmount)
+  {
+    bearRepelentCostText.text = priceAmount;
   }
 
   private void OnTriggerExit(Collider other)
@@ -87,7 +108,7 @@ public class HiveShop : MonoBehaviour
     beeGuardAmount++;
     if (beeGuardAmount >= maxBeeGuards)
     {
-      shopUI.transform.GetChild(0).GetComponent<Button>().interactable = false;
+      shopUI.transform.GetChild(1).GetComponent<Button>().interactable = false;
     }
   }
 
@@ -99,14 +120,20 @@ public class HiveShop : MonoBehaviour
       canBuyItem = true;
     }
     if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
-    if (flowerSpawner.FlowersMaxed())
-    {
-      shopUI.transform.GetChild(1).GetComponent<Button>().interactable = false;
-      return;
-    }
     pollenManager.AddPollen(-flowerBuyPrice);
     flowerBuyPrice += flowerPriceAdder;
     flowerSpawner.SpawnFlower(flowerPrefab);
+    if (flowerSpawner.FlowersMaxed())
+    {
+      SetFlowerText(flowerBuyPrice.ToString(" "));
+      print("setting price to null");
+      shopUI.transform.GetChild(2).GetComponent<Button>().interactable = false;
+      return;
+    }
+    else
+    {
+      SetFlowerText(flowerBuyPrice.ToString());
+    }
   }
 
   public void BuyBearRepelent()
@@ -120,9 +147,14 @@ public class HiveShop : MonoBehaviour
     }
     if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
     bearRepelentsUsed++;
+    if (bearRepelentPrice.Length > bearRepelentsUsed)
+    {
+      SetBearRepelentText(bearRepelentPrice[bearRepelentsUsed].ToString());
+    }
     if (bearRepelentsUsed >= 3)
     {
-      shopUI.transform.GetChild(2).GetComponent<Button>().interactable = false;
+      SetBearRepelentText(" ");
+      shopUI.transform.GetChild(3).GetComponent<Button>().interactable = false;
     }
   }
 

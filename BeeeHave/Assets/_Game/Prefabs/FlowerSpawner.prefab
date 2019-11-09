@@ -50,3 +50,6 @@ MonoBehaviour:
   flowerSpawnPointPrefab: {fileID: 4927705060568680726, guid: 9aa3c873efacdeb4b87e17593f60ce91,
     type: 3}
   flowerPointList: []
+  flowerPrefab: {fileID: 5976362582091187064, guid: d77077af67bd01943b711e6fc29e5ab2,
+    type: 3}
+  flowerSpawnPoint: {fileID: 0}

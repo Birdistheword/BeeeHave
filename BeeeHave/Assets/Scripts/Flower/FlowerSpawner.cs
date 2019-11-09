@@ -13,6 +13,8 @@ public class FlowerSpawner : MonoBehaviour
   [SerializeField] GameObject flowerSpawnPointPrefab;
   [SerializeField] GameObject[,] flowerSpawnPoints;
   [SerializeField] List<FlowerSpawnPoint> flowerPointList;
+  [SerializeField] GameObject flowerPrefab;
+  [SerializeField]
   GameObject flowerSpawnPoint;
 
   int flowerCount;
@@ -49,6 +51,10 @@ public class FlowerSpawner : MonoBehaviour
   {
     flowerSpawnPoints = new GameObject[xRange, yRange];
     SpawnFlowerPoints();
+    for (int i = 0; i < 3; i++)
+    {
+      SpawnFlower(flowerPrefab);
+    }
   }
 
   private void SpawnFlowerPoints()
@@ -59,7 +65,6 @@ public class FlowerSpawner : MonoBehaviour
       {
         flowerSpawnPoints[i, j] = flowerSpawnPointPrefab;
         flowerSpawnPoint = Instantiate(flowerSpawnPoints[i, j], new Vector3(i * xspawnDistance, 0, j * zspawnDistance), Quaternion.identity);
-        print("adding " + flowerSpawnPoint);
         flowerPointList.Add(flowerSpawnPoint.GetComponent<FlowerSpawnPoint>());
       }
     }
