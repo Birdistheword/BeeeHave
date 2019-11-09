@@ -27,9 +27,12 @@ public class Flower : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    NullificateTimers();
-    timeSinceEnteredCollider = 0;
-    playerIsIn = true;
+    if (other.tag == "Player")
+    {
+      NullificateTimers();
+      timeSinceEnteredCollider = 0;
+      playerIsIn = true;
+    }
   }
 
   private void NullificateTimers()
@@ -70,6 +73,9 @@ public class Flower : MonoBehaviour
 
   private void OnTriggerExit(Collider other)
   {
-    playerIsIn = false;
+    if (other.tag == "Player")
+    {
+      playerIsIn = false;
+    }
   }
 }
