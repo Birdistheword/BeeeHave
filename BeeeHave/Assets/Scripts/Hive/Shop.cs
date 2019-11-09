@@ -28,6 +28,10 @@ public class Shop : MonoBehaviour
     {
       OpenShop();
     }
+    if (playerIsIn && Input.GetKeyDown(KeyCode.Escape))
+    {
+      CloseShop();
+    }
   }
 
   private void OnTriggerExit(Collider other)
@@ -36,6 +40,14 @@ public class Shop : MonoBehaviour
     {
       playerIsIn = false;
       CloseShop();
+    }
+  }
+
+  public void GiveStat(BeeStats statType)
+  {
+    if (statType == BeeStats.efficiencyStat)
+    {
+      StatManager player = FindObjectOfType<StatManager>();
     }
   }
 
