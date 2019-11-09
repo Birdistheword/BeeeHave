@@ -291,11 +291,9 @@ GameObject:
   - component: {fileID: 2058483977584215355}
   - component: {fileID: 2058483977584215356}
   - component: {fileID: 2058483977584215359}
-  - component: {fileID: 1842891945}
-  - component: {fileID: 1842891946}
   m_Layer: 0
   m_Name: RPlayer
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -340,11 +338,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2058483977584215355}
-  moveSpeed: 500
-  dashSpeed: 45
+  moveSpeed: 3
+  dashSpeed: 40
   dashTime: 0.13
-  rotationSpeed: 7
-  dashCooldown: 2
+  rotationSpeed: 8
 --- !u!54 &2058483977584215355
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -359,7 +356,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 84
   m_CollisionDetection: 1
 --- !u!23 &2058483977584215356
 MeshRenderer:
@@ -413,34 +410,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1842891945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058483977584215358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef6cb40694b81ba4f9cda32b725479df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pollen: 0
---- !u!114 &1842891946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058483977584215358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14a9802980234d242b6c3426350203ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedStatLevel: 1
-  efficiencyStatLevel: 1
-  PollenCarryStatLevel: 1
 --- !u!1 &4939882034921903762
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class BearController : MonoBehaviour
     [SerializeField]
     Transform BearTarget;
     [SerializeField]float movSpeed = 3f;
+<<<<<<< HEAD
     [SerializeField] GameObject Hive;
 
 
@@ -17,10 +18,14 @@ public class BearController : MonoBehaviour
     private int[] HealthPool = { 1, 1, 2, 2, 2, 3, 3, 3, 4 };
     private int currentHealth;
     private GameStates GS;
+=======
+    [HideInInspector]
+    public bool startAttacking = false, isAttacking = false;
+>>>>>>> b5d1eb37b54ca3fa7783d607ccb0b935549698ae
 
     void Start()
     {
-        GS = GameObject.FindObjectOfType<GameStates>();
+        
     }
 
     // Update is called once per frame
@@ -31,6 +36,7 @@ public class BearController : MonoBehaviour
         if(isAttacking)
         {
             transform.position = Vector3.MoveTowards(transform.position, BearTarget.position, movSpeed * Time.deltaTime);
+<<<<<<< HEAD
 
             if(Vector3.Distance(BearTarget.position, transform.position) <= 1f)
             {
@@ -48,32 +54,22 @@ public class BearController : MonoBehaviour
 
 
 
+=======
+            Debug.Log("IsAttacking");
+        }
+>>>>>>> b5d1eb37b54ca3fa7783d607ccb0b935549698ae
     }
 
     private void StartAttack()
     {
+<<<<<<< HEAD
         GS.STATE = GameStates.GameState.BearMovingToHive;
         SetHealth();
+=======
+        Debug.Log("StartAttacking");
+        startAttacking = false;
+>>>>>>> b5d1eb37b54ca3fa7783d607ccb0b935549698ae
         isAttacking = true;
-        Debug.Log(currentHealth);
 
     }
-
-    private void SetHealth ()
-    {
-        if (firstAttack)
-        {
-            currentHealth = 1;
-            firstAttack = false;
-        }
-           
-        else
-            currentHealth = HealthPool[Random.Range(0, HealthPool.Length)];
-    }
-
-    public void TakeDamage(int _damage)
-    {
-        currentHealth -= _damage;
-    }
-
 }

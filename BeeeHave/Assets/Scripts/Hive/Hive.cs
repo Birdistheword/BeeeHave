@@ -15,8 +15,6 @@ public class Hive : MonoBehaviour
     }
   }
 
-
-
   private void OnTriggerExit(Collider other)
   {
     if (other.tag == "Player")
