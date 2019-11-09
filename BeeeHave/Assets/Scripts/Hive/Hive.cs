@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Hive : MonoBehaviour
 {
-  [SerializeField] Collider firstShopCollider;
-  [SerializeField] Collider secondShopCollider;
-
   bool playerisIn;
 
   private void OnTriggerEnter(Collider other)

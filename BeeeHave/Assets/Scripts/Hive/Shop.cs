@@ -13,6 +13,9 @@ public class Shop : MonoBehaviour
   [SerializeField] float[] efficiencyStatUpgradePrice;
   [SerializeField] float[] carryStatUpgradePrice;
 
+  [SerializeField] GameObject beePrefab = null;
+  [SerializeField] GameObject flowerPrefab = null;
+
   bool playerIsIn;
   bool canBuyUpgrade;
 
@@ -22,6 +25,7 @@ public class Shop : MonoBehaviour
 
   StatManager player;
   PollenManager pollenManager;
+  FlowerSpawner flowerSpawner;
 
   private void OnTriggerEnter(Collider other)
   {
@@ -34,10 +38,24 @@ public class Shop : MonoBehaviour
   private void Start()
   {
     shopUI.enabled = false;
+    flowerSpawner = FindObjectOfType<FlowerSpawner>();
   }
 
   private void Update()
   {
+    if (speedMaxed)
+    {
+      shopUI.transform.GetChild(0).GetComponent<Button>().interactable = false;
+    }
+    if (efficiencyMaxed)
+    {
+      shopUI.transform.GetChild(1).GetComponent<Button>().interactable = false;
+    }
+    if (carryMaxed)
+    {
+      shopUI.transform.GetChild(2).GetComponent<Button>().interactable = false;
+    }
+
     if (playerIsIn && Input.GetKeyDown(KeyCode.Q))
     {
       OpenShop();
@@ -84,6 +102,10 @@ public class Shop : MonoBehaviour
     if (!canBuyUpgrade) { print("cannot buy, not enough pollen"); return; }
     pollenManager.AddPollen(-speedStatUpgradePrice[player.GetEfficiencyStatLevel() - 1]);
     player.AddEfficiencyStat();
+    if (player.GetEfficiencyStatLevel() >= speedStatUpgradePrice.Length)
+    {
+      efficiencyMaxed = true;
+    }
   }
 
   public void GiveCarryStat()
@@ -96,15 +118,30 @@ public class Shop : MonoBehaviour
     if (!canBuyUpgrade) { print("cannot buy, not enough pollen"); return; }
     pollenManager.AddPollen(-speedStatUpgradePrice[player.GetCarryStatLevel() - 1]);
     player.AddCarryStat();
+    if (player.GetCarryStatLevel() >= speedStatUpgradePrice.Length)
+    {
+      carryMaxed = true;
+    }
+  }
+
+  public void BuyBearRepelent()
+  {
+
+  }
+
+  public void BuyFlower()
+  {
+    flowerSpawner.SpawnFlower(flowerPrefab);
+  }
+
+  public void BuyBeeDefender()
+  {
+
   }
 
   public void OpenShop()
   {
     shopUI.enabled = true;
-    if (speedMaxed)
-    {
-      shopUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.gray;
-    }
   }
 
   public void CloseShop()
