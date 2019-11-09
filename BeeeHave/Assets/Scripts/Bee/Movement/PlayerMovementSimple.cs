@@ -46,10 +46,6 @@ public class PlayerMovementSimple : MonoBehaviour
 
             Vector3 Movement = new Vector3(Move.x, 0f, Move.z);
 
-
-
-            //Vector3 Movement = new Vector3(vSpeed * moveSpeed * Time.fixedDeltaTime, 0f, hSpeed * moveSpeed * Time.deltaTime);
-
             //Fix for isometric Movement -> Rotate by 45 Degrees!
             if(Movement != Vector3.zero)
             {
@@ -57,7 +53,6 @@ public class PlayerMovementSimple : MonoBehaviour
                 Debug.Log("Fixing rotation!");
             }
             
-
             rb.velocity = Movement;
 
             // Rotate Forwards
