@@ -8,14 +8,15 @@ public class DefenseBeeManager : MonoBehaviour
     [SerializeField] Transform[] SpawnPoints;
 
     [HideInInspector]
-    public int amountOfCurrentBees = 0;
+    private int amountOfCurrentBees = 0;
     private int SpCounter = 0, children;
+    private GameStates GS;
 
     void Start()
     {
-        
-           
-        
+
+        GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
+
     }
 
     private void Update()
@@ -24,11 +25,32 @@ public class DefenseBeeManager : MonoBehaviour
         {
             SpawnGuardBee();
         }
+
+        if(GS.STATE == GameStates.GameState.BearAtHive && amountOfCurrentBees > 0)
+        {
+            //Changes behavious of guard bees
+            GS.STATE = GameStates.GameState.ThereIsGuardBees;
+            print(amountOfCurrentBees);
+            print("There is guard bees");
+        }
+
     }
 
     public void SpawnGuardBee()
     {
-        GameObject Bee = Instantiate(GuardbeePrefab, SpawnPoints[SpCounter].position, Quaternion.identity);
-        SpCounter++;
+        if(amountOfCurrentBees < 5)
+        {
+            GameObject Bee = Instantiate(GuardbeePrefab, SpawnPoints[SpCounter].position, Quaternion.identity);
+            SpCounter++;
+            amountOfCurrentBees++;
+        }
+        
+    }
+
+    public void BeeDied()
+    {
+        amountOfCurrentBees--;
+        print("Amount of current bees: " + amountOfCurrentBees);
+        SpCounter--;
     }
 }

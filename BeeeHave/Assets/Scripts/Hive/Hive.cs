@@ -36,7 +36,11 @@ public class Hive : MonoBehaviour
         if(health <= 0)
         {
             GS.STATE = GameStates.GameState.LoseCondition;
+            print("LoseCondition");
+            Time.timeScale = 0f;
         }
+
+       
     }
 
     public void TakeDamage(int _dmg)

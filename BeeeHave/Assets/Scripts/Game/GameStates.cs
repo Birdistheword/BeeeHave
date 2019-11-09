@@ -10,6 +10,8 @@ public class GameStates : MonoBehaviour
         BearStartAttack,
         BearMovingToHive,
         BearAtHive,
+        ThereIsGuardBees,
+        GuardBeesAttacking,
         DamagePhase,
         DidDamage,
         LoseCondition,

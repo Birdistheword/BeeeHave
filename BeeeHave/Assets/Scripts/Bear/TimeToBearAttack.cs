@@ -40,10 +40,11 @@ public class TimeToBearAttack : MonoBehaviour
 
         if(GS.STATE == GameStates.GameState.ResetTimer)
         {
+            GS.STATE = GameStates.GameState.Idle;
             counter = 0f;
             ChooseNewAttackInterval();
             img.fillAmount = 1;
-            GS.STATE = GameStates.GameState.Idle;
+           
         }
 
 

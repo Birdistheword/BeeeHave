@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - GameStateManager
+  - Bear
   layers:
   - Default
   - TransparentFX

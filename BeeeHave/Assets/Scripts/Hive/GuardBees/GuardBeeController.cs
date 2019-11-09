@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GuardBeeController : MonoBehaviour
 {
-    [SerializeField] GameObject BearPrefab;
+    [SerializeField] GameObject BearPrefab, BeeManager;
     private bool isAttacking = false;
     private Vector3 startPos;
     [SerializeField] int damage = 1;
@@ -15,38 +15,60 @@ public class GuardBeeController : MonoBehaviour
     {
         startPos = transform.position;
         GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
+
+        BearPrefab = GameObject.FindGameObjectWithTag("Bear");
     }
 
     private void Update()
     {
-        if(GS.STATE == GameStates.GameState.BearAtHive)
+        if(GS.STATE == GameStates.GameState.ThereIsGuardBees)
         {
-            HandleBearAttack();
+            MoveToBear();
+        }
+
+        AttackBear();
+
+        if(GS.STATE != GameStates.GameState.ThereIsGuardBees )
+        {
+            transform.position = startPos;
         }
 
     }
 
-    public void HandleBearAttack()
+    public void MoveToBear()
     {
-        if (!isAttacking)
+        
+        // Animate to attack
+        transform.position = Vector3.MoveTowards(transform.position, BearPrefab.transform.position, 1f);
+
+        if (Vector3.Distance(transform.position, BearPrefab.transform.position) <= 0.4f)
         {
-            isAttacking = true;
-            // Animate to attack
+            GS.STATE = GameStates.GameState.GuardBeesAttacking;
+        }
 
-            transform.position = Vector3.MoveTowards(transform.position, BearPrefab.transform.position, 3f);
+    }
 
-            // Deal Damage
+    private void AttackBear()
+    {
+        if (GS.STATE == GameStates.GameState.GuardBeesAttacking)
+        {
+            GS.STATE = GameStates.GameState.DamagePhase;
+            BearPrefab.GetComponent<BearController>().TakeDamage(damage);
             
+            BeeManager.GetComponent<DefenseBeeManager>().BeeDied();
 
-            // Die and clear counter on BeehiveManager
+            Destroy(gameObject);
         }
+        
     }
 
-    private IEnumerator WaitAndDamage()
+   /* private void OnTriggerStay(Collider other)
     {
-        yield return new WaitForSeconds(1.5f);
-        BearPrefab.GetComponent<BearController>().TakeDamage(damage);
-        GS.STATE = GameStates.GameState.DamagePhase;
-        Destroy(gameObject);
-    }
+        if(other.tag == "Bear")
+        {
+            transform.position = Vector3.MoveTowards(transform.position, other.transform.position, 1f);
+        }
+        
+    }*/
+
 }
