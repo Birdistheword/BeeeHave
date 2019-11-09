@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GuardBeeController : MonoBehaviour
 {
-    [SerializeField] GameObject BearPrefab;
+    [SerializeField] GameObject BearPrefab, BeeManager;
     private bool isAttacking = false;
     private Vector3 startPos;
     [SerializeField] int damage = 1;
@@ -14,39 +14,52 @@ public class GuardBeeController : MonoBehaviour
     private void Start()
     {
         startPos = transform.position;
-        GS = GameObject.FindObjectOfType<GameStates>();
+        GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
+
+        BearPrefab = GameObject.FindGameObjectWithTag("Bear");
     }
 
     private void Update()
     {
-        if(GS.STATE == GameStates.GameState.BearAtHive)
+        if(GS.STATE == GameStates.GameState.ThereIsGuardBees)
         {
-            HandleBearAttack();
+            MoveToBear();
+        }
+
+        AttackBear();
+
+        if(GS.STATE != GameStates.GameState.ThereIsGuardBees )
+        {
+            transform.position = startPos;
         }
 
     }
 
-    public void HandleBearAttack()
+    public void MoveToBear()
     {
-        if (!isAttacking)
+        
+        // Animate to attack
+        transform.position = Vector3.MoveTowards(transform.position, BearPrefab.transform.position, 1f);
+
+        if (Vector3.Distance(transform.position, BearPrefab.transform.position) <= 0.4f)
         {
-            isAttacking = true;
-            // Animate to attack
-
-            transform.position = Vector3.MoveTowards(transform.position, BearPrefab.transform.position, 3f);
-
-            // Deal Damage
-            
-
-            // Die and clear counter on BeehiveManager
+            GS.STATE = GameStates.GameState.GuardBeesAttacking;
         }
+
     }
 
-    private IEnumerator WaitAndDamage()
+    private void AttackBear()
     {
-        yield return new WaitForSeconds(1.5f);
-        BearPrefab.GetComponent<BearController>().TakeDamage(damage);
-        GS.STATE = GameStates.GameState.DamagePhase;
-        Destroy(gameObject);
+        if (GS.STATE == GameStates.GameState.GuardBeesAttacking)
+        {
+            GS.STATE = GameStates.GameState.DamagePhase;
+            BearPrefab.GetComponent<BearController>().TakeDamage(damage);
+            BeeManager.GetComponent<DefenseBeeManager>().BeeDied();
+            print("Bee died event");
+            Destroy(gameObject);
+        }
+        
     }
+
+
 }

@@ -6,6 +6,9 @@ public class Hive : MonoBehaviour
 {
   bool playerisIn;
     public int health = 10;
+    private GameStates GS;
+
+    
 
   private void OnTriggerEnter(Collider other)
   {
@@ -22,4 +25,27 @@ public class Hive : MonoBehaviour
       playerisIn = false;
     }
   }
+    private void Start()
+    {
+        GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
+    }
+
+    // IF health is 0 or below, toggle lose condition Game State
+    private void Update()
+    {
+        if(health <= 0)
+        {
+            GS.STATE = GameStates.GameState.LoseCondition;
+            print("LoseCondition");
+            Time.timeScale = 0f;
+        }
+
+       
+    }
+
+    public void TakeDamage(int _dmg)
+    {
+        health -= _dmg;
+        print("Took" + _dmg + "damage");
+    }
 }

@@ -5,22 +5,95 @@ using UnityEngine;
 public class BearController : MonoBehaviour
 {
     [SerializeField]
-    Transform BearTarget;
+    Transform BearTarget, BearDamageTarget, BearStartPos;
     [SerializeField]float movSpeed = 3f;
     [SerializeField] GameObject Hive;
 
 
     [HideInInspector]
     public bool startAttacking = false, isAttacking = false, didDamage = false;
-    private bool firstAttack = true;
+    private bool firstAttack = true, hasRetreated = false;
 
-    private int[] HealthPool = { 1, 1, 2, 2, 2, 3, 3, 3, 4 };
-    private int currentHealth;
+    private int[] HealthPool = { 1, 2, 2, 2, 3, 3, 3, 4 };
+    private int currentHealth = 1;
     private GameStates GS;
 
     void Start()
     {
-        GS = GameObject.FindObjectOfType<GameStates>();
+        GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
+    }
+
+
+
+
+    private void MoveToHive()
+    {
+        if (GS.STATE == GameStates.GameState.BearMovingToHive)
+            transform.position = Vector3.MoveTowards(transform.position, BearTarget.position, movSpeed * Time.deltaTime);
+    }
+
+    private void WhenAtHive()
+    {
+        if (GS.STATE == GameStates.GameState.BearMovingToHive && Vector3.Distance(BearTarget.position, transform.position) <= 1f)
+        {
+            GS.STATE = GameStates.GameState.BearAtHive;
+            print("Bear at hive");
+
+            StartCoroutine(WaitForBeeAttack());
+        }
+    }
+
+    private IEnumerator WaitForBeeAttack()
+    {
+        //Wait to check if there is defense bees
+        yield return new WaitForSeconds(3f);
+
+        if (GS.STATE == GameStates.GameState.BearAtHive)
+        {
+            GS.STATE = GameStates.GameState.DamagePhase;
+            print("Damage phase");
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        
+    }
+
+    private void Damage()
+    {
+        if (GS.STATE == GameStates.GameState.DamagePhase)
+        {
+            // Damage the Hive
+            GS.STATE = GameStates.GameState.DidDamage;
+            print("did damage");
+            Hive.GetComponent<Hive>().TakeDamage(currentHealth);
+        }
+
+
+        else if (GS.STATE == GameStates.GameState.DidDamage)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, BearDamageTarget.position, movSpeed * Time.deltaTime);
+        }
+    }
+
+
+    private void Retreat()
+    {
+        //Then Go back -> Retreat
+        if (GS.STATE == GameStates.GameState.DidDamage&& Vector3.Distance(transform.position, BearDamageTarget.position) <= 1f)
+        {
+            transform.position = BearStartPos.position;
+            GS.STATE = GameStates.GameState.BearRetreat;
+            print("BearRetreat");
+            
+        }
+
+        if (GS.STATE == GameStates.GameState.BearRetreat && Vector3.Distance(transform.position, BearStartPos.position) <= 1f)
+        {
+            GS.STATE = GameStates.GameState.ResetTimer;
+            print("ResetTimer");
+            return;
+        }
     }
 
     // Update is called once per frame
@@ -28,45 +101,44 @@ public class BearController : MonoBehaviour
     {
 
         // At Start, Check for Start Attack
-        if (GS.STATE == GameStates.GameState.BearStartAttack) StartAttack();
-
-        if(isAttacking)
+        if (GS.STATE == GameStates.GameState.BearStartAttack)
         {
-            transform.position = Vector3.MoveTowards(transform.position, BearTarget.position, movSpeed * Time.deltaTime);
-
-            if(Vector3.Distance(BearTarget.position, transform.position) <= 1f)
-            {
-                GS.STATE = GameStates.GameState.BearAtHive;
-            }
+            print("Start attack");
+            StartAttack();
         }
 
+        MoveToHive();
+        WhenAtHive();
+        Damage();
+        Retreat();
 
-        // When Bear is at Hive, Check if it has 0 HP and if it does, RETREAT
-        if(GS.STATE == GameStates.GameState.BearAtHive && currentHealth <= 0)
-        {
+        // Retreat if no health
+        if (GS.STATE != GameStates.GameState.Idle && currentHealth <= 0 && !hasRetreated)
+        { 
             GS.STATE = GameStates.GameState.BearRetreat;
+            transform.position = BearStartPos.position;
+            print("BearRetreat because of Damage");
+            hasRetreated = true;
         }
 
-        if (GS.STATE == GameStates.GameState.DamagePhase && didDamage == false)
-        {
-            // Damage the Hive
-            didDamage = true;
-            Hive.GetComponent<Hive>().health -= currentHealth;
-            
-        }
-
+        if (GS.STATE == GameStates.GameState.Idle && hasRetreated) hasRetreated = false;
 
 
     }
+
 
     //Set attacking to true and let bear approach Hive
     private void StartAttack()
     {
-        GS.STATE = GameStates.GameState.BearMovingToHive;
-        SetHealth();
-        isAttacking = true;
-
+        if(GS.STATE == GameStates.GameState.BearStartAttack)
+        {
+            GS.STATE = GameStates.GameState.BearMovingToHive;
+            SetHealth();
+            isAttacking = true;
+        }
     }
+
+    
 
     //Set Health, 
     // First time -> 1
@@ -81,8 +153,11 @@ public class BearController : MonoBehaviour
            
         else
             currentHealth = HealthPool[Random.Range(0, HealthPool.Length)];
+
+        print("CurrenBearHealth:" + currentHealth);
     }
 
+    // This method is called from GuardBeeController and the Player
     public void TakeDamage(int _damage)
     {
         currentHealth -= _damage;

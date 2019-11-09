@@ -10,9 +10,13 @@ public class GameStates : MonoBehaviour
         BearStartAttack,
         BearMovingToHive,
         BearAtHive,
+        ThereIsGuardBees,
+        GuardBeesAttacking,
         DamagePhase,
+        DidDamage,
         LoseCondition,
-        BearRetreat
+        BearRetreat,
+        ResetTimer
     }
 
     public GameState STATE =  GameState.Idle;

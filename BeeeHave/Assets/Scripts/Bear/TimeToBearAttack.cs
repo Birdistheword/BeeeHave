@@ -15,30 +15,36 @@ public class TimeToBearAttack : MonoBehaviour
     private float counter = 0f, timeTillAttack;
     private bool countingTime = true;
     public bool  sentAttack = false;
-
+    private GameStates GS;
 
     void Start()
     {
         timeTillAttack = attackIntervals[0];
+        GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
     }
 
 
     void Update()
     {
 
-        if(countingTime)
+        if(GS.STATE == GameStates.GameState.Idle)
         {
             counter += Time.deltaTime;
-            Debug.Log(counter);
             img.fillAmount = (timeTillAttack - counter) / timeTillAttack;
         }
 
-        if ( counter >= timeTillAttack && !sentAttack )
+        if (GS.STATE == GameStates.GameState.Idle && counter >= timeTillAttack && !sentAttack )
         {
-            bearPrefab.GetComponent<BearController>().startAttacking = true;
-            countingTime = false;
+            GS.STATE = GameStates.GameState.BearStartAttack;
+        }
+
+        if(GS.STATE == GameStates.GameState.ResetTimer)
+        {
+            GS.STATE = GameStates.GameState.Idle;
+            counter = 0f;
             ChooseNewAttackInterval();
-            sentAttack = true;
+            img.fillAmount = 1;
+           
         }
 
 
