@@ -1439,6 +1439,12 @@ PrefabInstance:
       propertyPath: bearRepelentCostText
       value: 
       objectReference: {fileID: 202064980}
+    - target: {fileID: 2652967638720828620, guid: 813b509f6b07de144bf647d1e6fa6c19,
+        type: 3}
+      propertyPath: beePrefab
+      value: 
+      objectReference: {fileID: 6236346554008644947, guid: ea1525d742f1f7148836c25a19c19614,
+        type: 3}
     - target: {fileID: 5749978624729200868, guid: 813b509f6b07de144bf647d1e6fa6c19,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1449,6 +1455,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ab4d0f6f30aed724c81efe7ea4c7befb, type: 2}
+    - target: {fileID: 1964821605, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
+      propertyPath: m_Size.z
+      value: 16.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003534385, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
+      propertyPath: m_Size.z
+      value: 14.52
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
 --- !u!1 &256813371
@@ -10012,6 +10026,10 @@ PrefabInstance:
         type: 3}
       propertyPath: pollenCarryStatValue
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 878852854, guid: abdffe57550968248863e09bbd90bbcb, type: 3}
+      propertyPath: pollenCarryStatValue
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2029257716711892143, guid: abdffe57550968248863e09bbd90bbcb,
         type: 3}

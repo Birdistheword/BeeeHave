@@ -12,19 +12,21 @@ public class StatManager : MonoBehaviour
 
   [SerializeField] int pollenCarryStatValue = 2;
 
+  [SerializeField] int speedStatValue = 1;
+
   PlayerMovementSimple playerMovementSimple;
   PollenManager pollenManager;
 
   private void Start()
   {
-    playerMovementSimple.GetComponent<PlayerMovementSimple>();
-    pollenManager.GetComponent<PollenManager>();
+    playerMovementSimple = GetComponent<PlayerMovementSimple>();
+    pollenManager = GetComponent<PollenManager>();
   }
 
   public void AddSpeedStat()
   {
     speedStatLevel++;
-    //playerMovementSimple.
+    playerMovementSimple.AddSpeed(speedStatValue);
   }
 
   public void AddEfficiencyStat()
