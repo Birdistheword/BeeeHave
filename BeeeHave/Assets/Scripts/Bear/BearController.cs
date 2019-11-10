@@ -163,4 +163,9 @@ public class BearController : MonoBehaviour
         currentHealth -= _damage;
     }
 
+    public int GetHealth()
+    {
+        return currentHealth;
+    }
+
 }

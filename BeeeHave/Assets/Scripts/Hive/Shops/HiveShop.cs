@@ -74,6 +74,7 @@ public class HiveShop : MonoBehaviour
 
     if (playerIsIn && Input.GetKeyDown(KeyCode.Q))
     {
+      print("Opening Shop");
       OpenShop();
     }
     if (playerIsIn && Input.GetKeyDown(KeyCode.Escape))

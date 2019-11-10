@@ -52,7 +52,7 @@ public class TimeToBearAttack : MonoBehaviour
 
     private void ChooseNewAttackInterval ()
     {
-        timeTillAttack = attackIntervals[Random.Range(0, attackIntervals.Length)];
+        timeTillAttack = attackIntervals[Random.Range(1, attackIntervals.Length)];
         Debug.Log("Time till next attack:" + timeTillAttack);
     }
 }
