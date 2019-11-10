@@ -59,4 +59,9 @@ public class PollenManager : MonoBehaviour
   {
     pollenEfficiency += pollenEffciencyAmountIncrease;
   }
+
+  public void ResetPollen()
+  {
+    pollen = 0;
+  }
 }
