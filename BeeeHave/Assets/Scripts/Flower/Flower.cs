@@ -5,77 +5,45 @@ using UnityEngine;
 
 public class Flower : MonoBehaviour
 {
-  [SerializeField] float timeToReceivePollen = 2f;
-  [SerializeField] float timeSinceEnteredCollider;
-  [SerializeField] int pollenAmount = 10;
+  [SerializeField] Pollen pollenPrefab;
 
-  bool pollenReadyToGive;
-  bool playerIsIn;
-  bool pollenWasGiven = true;
+  [SerializeField] float pollenSpawnHeight = 2;
 
-  float timeSinceGavePollen = Mathf.Infinity;
+  bool pollenIsSpawned;
+
+  float timeSinceSpawnedPollen = 0;
   [SerializeField] float pollenRespawnTimer;
+
+  private void Start()
+  {
+    pollenIsSpawned = false;
+  }
 
   private void Update()
   {
-    timeSinceGavePollen += Time.deltaTime;
-    if (timeSinceGavePollen >= pollenRespawnTimer)
+    if (pollenIsSpawned)
     {
-      pollenReadyToGive = true;
+      timeSinceSpawnedPollen = 0;
     }
-  }
-
-  private void OnTriggerEnter(Collider other)
-  {
-    if (other.tag == "Player")
+    else
     {
-      NullificateTimers();
-      timeSinceEnteredCollider = 0;
-      playerIsIn = true;
-    }
-  }
-
-  private void NullificateTimers()
-  {
-    timeSinceGavePollen = 0;
-    timeSinceEnteredCollider = 0;
-  }
-
-  private void OnTriggerStay(Collider other)
-  {
-    if (other.tag == "Player")
-    {
-      print("player entereted");
-      if (pollenReadyToGive)
+      timeSinceSpawnedPollen += Time.deltaTime;
+      if (timeSinceSpawnedPollen >= pollenRespawnTimer && !pollenIsSpawned)
       {
-        if (pollenWasGiven)
-        {
-          timeSinceEnteredCollider = 0;
-          pollenWasGiven = false;
-        }
-        timeSinceEnteredCollider += Time.deltaTime;
-        if (timeSinceEnteredCollider >= timeToReceivePollen)
-        {
-          GivePollen(pollenAmount, other);
-          timeSinceGavePollen = 0;
-          pollenReadyToGive = false;
-          pollenWasGiven = true;
-        }
+        SpawnPollen();
       }
     }
   }
 
-  private void GivePollen(int pollenAmount, Collider other)
+  private void SpawnPollen()
   {
-    other.GetComponent<PollenManager>().AddPollen(pollenAmount);
-    print(other.name + " received " + pollenAmount + " pollen");
+    print("Spawning pollen");
+    Instantiate(pollenPrefab, new Vector3(transform.position.x, transform.position.y + pollenSpawnHeight, transform.position.z), Quaternion.identity, transform);
   }
 
-  private void OnTriggerExit(Collider other)
+  public void SetPollenIsSpawned(bool isPollenSpawned)
   {
-    if (other.tag == "Player")
-    {
-      playerIsIn = false;
-    }
+    pollenIsSpawned = isPollenSpawned;
   }
+
 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5976362582091187069}
   - component: {fileID: 5976362582091187068}
   - component: {fileID: 5976362582091187067}
-  - component: {fileID: 5976362582091187066}
   - component: {fileID: 5976362582091187065}
   m_Layer: 0
   m_Name: Flower
@@ -80,19 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &5976362582091187066
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5976362582091187064}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5976362582091187065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b79aaba7a6d2245a49bc80103d25f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToReceivePollen: 3
-  timeSinceEnteredCollider: 0
-  pollenAmount: 10
+  pollenPrefab: {fileID: 7381558364822288498, guid: 595160a3d816e344f8b3c4e2b27f52ce,
+    type: 3}
+  pollenSpawnHeight: 6
   pollenRespawnTimer: 10
