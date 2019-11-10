@@ -161,6 +161,7 @@ public class BearController : MonoBehaviour
     public void TakeDamage(int _damage)
     {
         currentHealth -= _damage;
+        print("Bear took " + _damage + " damage");
     }
 
     public int GetHealth()

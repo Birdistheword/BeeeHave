@@ -6,7 +6,7 @@ public class DefenseBeeManager : MonoBehaviour
 {
     [SerializeField] GameObject GuardbeePrefab, BearPrefab;
     [SerializeField] Transform[] SpawnPoints;
-    private GameObject[] AllGuardBees;
+    private List<GameObject> AllGuardBees= new List<GameObject>();
 
     //[HideInInspector]
     [SerializeField] private int amountOfCurrentBees = 0;
@@ -18,16 +18,15 @@ public class DefenseBeeManager : MonoBehaviour
     {
 
         GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
-        BC = BearPrefab.GetComponent<BearController>();
+        BC = GameObject.FindGameObjectWithTag("Bear").GetComponent<BearController>();
+
+        print("BearController: " + BC.gameObject.tag);
 
 
     }
 
     private void Update()
     {
-
-        print("Amount of bees:" + amountOfCurrentBees);
-        print("SpCpounter:" + SpCounter);
         if (Input.GetKeyDown(KeyCode.L))
         {
             SpawnGuardBee();
@@ -48,8 +47,10 @@ public class DefenseBeeManager : MonoBehaviour
     {
         if (amountOfCurrentBees < 5)
         {
-            GameObject Bee = Instantiate(GuardbeePrefab, SpawnPoints[SpCounter].position, Quaternion.identity);
-            AllGuardBees[SpCounter] = Bee;
+            GameObject Bee =  Instantiate(GuardbeePrefab, SpawnPoints[SpCounter].position, Quaternion.identity);
+
+            AllGuardBees.Add(Bee);
+
 
             if (Bee != null)
             {
@@ -70,18 +71,26 @@ public class DefenseBeeManager : MonoBehaviour
         {
             int bearHealth = BC.GetHealth();
 
-            for (int i = 0; i <= bearHealth; i++)
+
+            // Let the bees attack the bear
+            for (int i = bearHealth; i > 0; i--)
             {
-                AllGuardBees[i].transform.position = Vector3.MoveTowards(transform.position, BearPrefab.transform.position, 1f);
+                print("AllGuardbeecount:" + AllGuardBees.Count);
+                print("BearHealth:" + bearHealth);
 
-                if(Vector3.Distance(AllGuardBees[i].transform.position, BearPrefab.transform.position) <= 1f)
-                {
-                    BC.TakeDamage(1); // Fix magic number
-                    Destroy(AllGuardBees[i]);
-                    SpCounter--;
-                    amountOfCurrentBees--;
-                }
+                // If there is more bees than the bear has health, then choose them form the right and update accordingly
 
+                    if(AllGuardBees.Count > 0)
+                    {
+                        AllGuardBees[AllGuardBees.Count - 1].transform.position = Vector3.MoveTowards(transform.position, BearPrefab.transform.position, 1f);
+                        BC.TakeDamage(1); // Fix magic number
+                        print("Bee stung bear");
+                        Destroy(AllGuardBees[AllGuardBees.Count - 1]);
+                        AllGuardBees.Remove(AllGuardBees[AllGuardBees.Count - 1]);
+                        SpCounter--;
+                        amountOfCurrentBees--;
+                    }
+                       
             }
 
             GS.STATE = GameStates.GameState.DamagePhase;

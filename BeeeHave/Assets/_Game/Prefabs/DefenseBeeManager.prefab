@@ -80,12 +80,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GuardbeePrefab: {fileID: 6236346554008644947, guid: ea1525d742f1f7148836c25a19c19614,
     type: 3}
+  BearPrefab: {fileID: 0}
   SpawnPoints:
   - {fileID: 8400362909663916571}
   - {fileID: 8400362909675496818}
   - {fileID: 8400362910381661456}
   - {fileID: 8400362910233180387}
   - {fileID: 1137661757}
+  amountOfCurrentBees: 0
 --- !u!1 &8400362909663916570
 GameObject:
   m_ObjectHideFlags: 0
