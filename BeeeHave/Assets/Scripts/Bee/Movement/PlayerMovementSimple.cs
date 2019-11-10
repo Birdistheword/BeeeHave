@@ -10,20 +10,16 @@ public class PlayerMovementSimple : MonoBehaviour
 
   private float hSpeed, vSpeed, dashCd = 0f;
   private bool dashing = false;
-
-  [SerializeField] float speedStatValue = 2f;
-  [SerializeField] float speedStatApplication;
-
-  StatManager statManager;
+    private float startMovingSpeed;
 
   private void Start()
   {
-    statManager = GetComponent<StatManager>();
+        startMovingSpeed = moveSpeed;
   }
 
   private void Update()
   {
-    speedStatApplication = statManager.GetSpeedStatLevel() * speedStatValue;
+   
     Move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
 
@@ -47,9 +43,9 @@ public class PlayerMovementSimple : MonoBehaviour
   {
     if (!dashing)
     {
-      //Get the Values from Input
-      Move.x = Move.x * moveSpeed * Time.fixedDeltaTime * speedStatApplication;
-      Move.z = Move.z * moveSpeed * Time.fixedDeltaTime * speedStatApplication;
+        //Get the Values from Input
+        Move.x = Move.x * moveSpeed * Time.fixedDeltaTime;
+        Move.z = Move.z * moveSpeed * Time.fixedDeltaTime;
 
 
       Vector3 Movement = new Vector3(Move.x, 0f, Move.z);
@@ -105,6 +101,16 @@ public class PlayerMovementSimple : MonoBehaviour
     rb.velocity = Vector3.zero;
     dashing = false;
   }
+
+    public void IncreaseSpeed(float AddedSpeed)
+    {
+        moveSpeed += AddedSpeed;
+    }
+
+    public void ResetSpeed()
+    {
+        moveSpeed = startMovingSpeed;
+    }
 
 
 }
