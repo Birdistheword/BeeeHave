@@ -55,4 +55,11 @@ public class StatManager : MonoBehaviour
   {
     return PollenCarryStatLevel;
   }
+
+  public void ResetStats()
+  {
+    speedStatLevel = 1;
+    efficiencyStatLevel = 1;
+    PollenCarryStatLevel = 1;
+  }
 }
