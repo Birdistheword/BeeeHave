@@ -8,7 +8,7 @@ public class BearController : MonoBehaviour
     Transform BearTarget, BearDamageTarget, BearStartPos;
     [SerializeField]float movSpeed = 3f;
     [SerializeField] GameObject Hive;
-
+    [SerializeField] GameObject[] HealthBars;
 
     [HideInInspector]
     public bool startAttacking = false, isAttacking = false, didDamage = false;
@@ -21,6 +21,12 @@ public class BearController : MonoBehaviour
     void Start()
     {
         GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
+
+        // Deactivate Health Bars
+        foreach(GameObject bar in HealthBars)
+        {
+            bar.SetActive(false);
+        }
     }
 
 
@@ -148,11 +154,17 @@ public class BearController : MonoBehaviour
         if (firstAttack)
         {
             currentHealth = 1;
+            HealthBars[0].SetActive(true);
             firstAttack = false;
         }
            
         else
             currentHealth = HealthPool[Random.Range(0, HealthPool.Length)];
+
+        for (int i = 0; i < currentHealth; i++)
+        {
+            HealthBars[i].SetActive(true);
+        }
 
         print("CurrenBearHealth:" + currentHealth);
     }
@@ -160,7 +172,13 @@ public class BearController : MonoBehaviour
     // This method is called from GuardBeeController and the Player
     public void TakeDamage(int _damage)
     {
+        if(currentHealth > 0)
+        {
+            HealthBars[currentHealth - 1].SetActive(false);
+        }
+        
         currentHealth -= _damage;
+        print("Bear took " + _damage + " damage");
     }
 
     public int GetHealth()

@@ -14,7 +14,6 @@ public class FlowerSpawner : MonoBehaviour
   [SerializeField] GameObject[,] flowerSpawnPoints;
   [SerializeField] List<FlowerSpawnPoint> flowerPointList;
   [SerializeField] GameObject flowerPrefab;
-  [SerializeField]
   GameObject flowerSpawnPoint;
 
   int flowerCount;
