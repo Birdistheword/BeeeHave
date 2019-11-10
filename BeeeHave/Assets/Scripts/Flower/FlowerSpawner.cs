@@ -16,6 +16,8 @@ public class FlowerSpawner : MonoBehaviour
   [SerializeField] GameObject flowerPrefab;
   GameObject flowerSpawnPoint;
 
+  [SerializeField] float flowerSpawnHeight = 1;
+
   int flowerCount;
   bool flowersMaxed = false;
 
@@ -63,7 +65,7 @@ public class FlowerSpawner : MonoBehaviour
       for (int j = 0; j < yRange; j++)
       {
         flowerSpawnPoints[i, j] = flowerSpawnPointPrefab;
-        flowerSpawnPoint = Instantiate(flowerSpawnPoints[i, j], new Vector3(i * xspawnDistance, 0, j * zspawnDistance), Quaternion.identity);
+        flowerSpawnPoint = Instantiate(flowerSpawnPoints[i, j], new Vector3(i * xspawnDistance, flowerSpawnHeight, j * zspawnDistance), Quaternion.identity);
         flowerPointList.Add(flowerSpawnPoint.GetComponent<FlowerSpawnPoint>());
       }
     }
