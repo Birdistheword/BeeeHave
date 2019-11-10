@@ -8,15 +8,17 @@ public class BearController : MonoBehaviour
     Transform BearTarget, BearDamageTarget, BearStartPos;
     [SerializeField]float movSpeed = 3f;
     [SerializeField] GameObject Hive;
+    [SerializeField] Animator anim;
     [SerializeField] GameObject[] HealthBars;
 
     [HideInInspector]
     public bool startAttacking = false, isAttacking = false, didDamage = false;
-    private bool firstAttack = true, hasRetreated = false;
+    private bool firstAttack = true, hasRetreated = false, currentlyMoving = false;
 
     private int[] HealthPool = { 1, 2, 2, 2, 3, 3, 3, 4 };
     private int currentHealth = 1;
     private GameStates GS;
+
 
     void Start()
     {
@@ -28,26 +30,32 @@ public class BearController : MonoBehaviour
             bar.SetActive(false);
         }
     }
-
-
-
+    
 
     private void MoveToHive()
     {
-        if (GS.STATE == GameStates.GameState.BearMovingToHive)
-            transform.position = Vector3.MoveTowards(transform.position, BearTarget.position, movSpeed * Time.deltaTime);
+        if (GS.STATE == GameStates.GameState.BearMovingToHive && !currentlyMoving)
+        {
+            //transform.position = Vector3.MoveTowards(transform.position, BearTarget.position, movSpeed * Time.deltaTime);
+            print("STARTING WALKING ANIMATION AND BEAR ATTACK");
+            anim.SetTrigger("StartWalk");
+            currentlyMoving = true ;
+        }
+            
     }
 
     private void WhenAtHive()
     {
-        if (GS.STATE == GameStates.GameState.BearMovingToHive && Vector3.Distance(BearTarget.position, transform.position) <= 1f)
-        {
-            GS.STATE = GameStates.GameState.BearAtHive;
-            print("Bear at hive");
+        
+        GS.STATE = GameStates.GameState.BearAtHive;
+        print("Bear at hive");
 
-            StartCoroutine(WaitForBeeAttack());
-        }
+        StartCoroutine(WaitForBeeAttack());
+        currentlyMoving = false;
+        
     }
+
+
 
     private IEnumerator WaitForBeeAttack()
     {
@@ -62,7 +70,6 @@ public class BearController : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        
     }
 
     private void Damage()
@@ -70,36 +77,46 @@ public class BearController : MonoBehaviour
         if (GS.STATE == GameStates.GameState.DamagePhase)
         {
             // Damage the Hive
+            anim.SetTrigger("StartAttack");
             GS.STATE = GameStates.GameState.DidDamage;
             print("did damage");
             Hive.GetComponent<Hive>().TakeDamage(currentHealth);
         }
 
 
-        else if (GS.STATE == GameStates.GameState.DidDamage)
+        /*else if (GS.STATE == GameStates.GameState.DidDamage && anim.GetCurrentAnimatorStateInfo(0).IsName("BearAttack"))
         {
-            transform.position = Vector3.MoveTowards(transform.position, BearDamageTarget.position, movSpeed * Time.deltaTime);
-        }
+            
+        }*/
+    }
+
+    public void BearFinishedAttacking()
+    {
+        //transform.position = Vector3.MoveTowards(transform.position, BearDamageTarget.position, movSpeed * Time.deltaTime);
+        print("this has happened bear finished attacking");
+        Vector3.MoveTowards(transform.position, BearStartPos.position, movSpeed * Time.deltaTime);
+        GS.STATE = GameStates.GameState.BearRetreat;
+        anim.SetTrigger("Retreat");
     }
 
 
     private void Retreat()
     {
         //Then Go back -> Retreat
-        if (GS.STATE == GameStates.GameState.DidDamage&& Vector3.Distance(transform.position, BearDamageTarget.position) <= 1f)
+        if (GS.STATE == GameStates.GameState.BearRetreat )
         {
-            transform.position = BearStartPos.position;
-            GS.STATE = GameStates.GameState.BearRetreat;
             print("BearRetreat");
-            
+            anim.SetTrigger("Retreat");
         }
 
-        if (GS.STATE == GameStates.GameState.BearRetreat && Vector3.Distance(transform.position, BearStartPos.position) <= 1f)
-        {
-            GS.STATE = GameStates.GameState.ResetTimer;
-            print("ResetTimer");
-            return;
-        }
+        
+    }
+
+    public void DoneRetreating()
+    {
+        GS.STATE = GameStates.GameState.ResetTimer;
+        print("RESETTIMER");
+        anim.SetTrigger("FinishedRetreat");
     }
 
     // Update is called once per frame
@@ -114,20 +131,26 @@ public class BearController : MonoBehaviour
         }
 
         MoveToHive();
-        WhenAtHive();
         Damage();
         Retreat();
 
         // Retreat if no health
         if (GS.STATE != GameStates.GameState.Idle && currentHealth <= 0 && !hasRetreated)
-        { 
+        {
             GS.STATE = GameStates.GameState.BearRetreat;
-            transform.position = BearStartPos.position;
-            print("BearRetreat because of Damage");
+            print("RETREAT BECAUSE DEAD");
             hasRetreated = true;
         }
 
         if (GS.STATE == GameStates.GameState.Idle && hasRetreated) hasRetreated = false;
+
+        // If has retreated
+        if (GS.STATE == GameStates.GameState.BearHasRetreated)
+        {
+            GS.STATE = GameStates.GameState.ResetTimer;
+            print("ResetTimer");
+            return;
+        }
 
 
     }

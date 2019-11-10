@@ -6,6 +6,10 @@ public class PlayerMovementSimple : MonoBehaviour
 {
   [SerializeField] Rigidbody rb;
   [SerializeField] float moveSpeed, startSpeed, dashSpeed, dashTime, rotationSpeed, dashCooldown = 2f;
+
+  [SerializeField] AudioSource dashSFX;
+  [SerializeField] AudioSource moveSFX;
+
   private Vector3 Move;
 
   private float hSpeed, vSpeed, dashCd = 0f;
@@ -45,9 +49,11 @@ public class PlayerMovementSimple : MonoBehaviour
   {
     if (!dashing)
     {
-        //Get the Values from Input
-        Move.x = Move.x * moveSpeed * Time.fixedDeltaTime;
-        Move.z = Move.z * moveSpeed * Time.fixedDeltaTime;
+      moveSFX.Play();
+
+      //Get the Values from Input
+      Move.x = Move.x * moveSpeed * Time.fixedDeltaTime;
+      Move.z = Move.z * moveSpeed * Time.fixedDeltaTime;
 
 
       Vector3 Movement = new Vector3(Move.x, 0f, Move.z);
@@ -76,6 +82,8 @@ public class PlayerMovementSimple : MonoBehaviour
   {
     if (dashCd <= 0f)
     {
+
+      dashSFX.Play();
       //Stop Movement
       dashing = true;
 
@@ -104,28 +112,28 @@ public class PlayerMovementSimple : MonoBehaviour
     dashing = false;
   }
 
-    public void AddSpeed(float addedSpeed)
-    {
-        moveSpeed += addedSpeed;
-    }
+  public void AddSpeed(float addedSpeed)
+  {
+    moveSpeed += addedSpeed;
+  }
 
-    public void ResetSpeed()
-    {
-        moveSpeed = startSpeed;
-    }
+  public void ResetSpeed()
+  {
+    moveSpeed = startSpeed;
+  }
 
-    private void OnCollisionEnter(Collision collision)
+  private void OnCollisionEnter(Collision collision)
+  {
+    if (dashing)
     {
-        if(dashing)
-        {
-            if(collision.gameObject.tag == "Bear")
-            {
-                // WE STUNG THE BEAR
-                collision.gameObject.GetComponent<BearController>().TakeDamage(4);
+      if (collision.gameObject.tag == "Bear")
+      {
+        // WE STUNG THE BEAR
+        collision.gameObject.GetComponent<BearController>().TakeDamage(4);
 
-                // Reset the bee
-                ResetSpeed();
-            }
-        }
+        // Reset the bee
+        ResetSpeed();
+      }
     }
+  }
 }
