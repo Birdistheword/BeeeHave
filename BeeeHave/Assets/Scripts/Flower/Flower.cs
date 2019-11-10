@@ -33,7 +33,7 @@ public class Flower : MonoBehaviour
 
       if (timeSinceSpawnedPollen >= pollenRespawnTimer && !pollenIsSpawned)
       {
-        animator.SetTrigger("flowerOpening");
+        animator.SetTrigger("openFlower");
         StartCoroutine(SpawnPollen());
         SpawnPollen();
       }
@@ -52,7 +52,7 @@ public class Flower : MonoBehaviour
     pollenIsSpawned = isPollenSpawned;
     if (!pollenIsSpawned)
     {
-      animator.SetTrigger("flowerClosing");
+      animator.SetTrigger("closeFlower");
     }
   }
 
