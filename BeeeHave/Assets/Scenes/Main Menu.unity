@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -234,6 +234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Start Scene UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1361725553, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1266760183238980562, guid: 38235922cc5e97f4a9b9de68c262a8d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -289,14 +293,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1361725553, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1738321101993037094, guid: 38235922cc5e97f4a9b9de68c262a8d2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3136222615421872467, guid: 38235922cc5e97f4a9b9de68c262a8d2,
         type: 3}
@@ -343,6 +343,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8916247267045759442, guid: 38235922cc5e97f4a9b9de68c262a8d2,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916247267045759442, guid: 38235922cc5e97f4a9b9de68c262a8d2,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8790192709621496633, guid: 38235922cc5e97f4a9b9de68c262a8d2,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -351,7 +361,7 @@ PrefabInstance:
     - target: {fileID: 8790192709621496633, guid: 38235922cc5e97f4a9b9de68c262a8d2,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
