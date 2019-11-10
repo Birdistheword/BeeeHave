@@ -13,10 +13,12 @@ public class Flower : MonoBehaviour
 
   float timeSinceSpawnedPollen = 0;
   [SerializeField] float pollenRespawnTimer;
+  Animator animator;
 
   private void Start()
   {
     pollenIsSpawned = false;
+    animator = GetComponentInChildren<Animator>();
   }
 
   private void Update()
@@ -31,13 +33,16 @@ public class Flower : MonoBehaviour
 
       if (timeSinceSpawnedPollen >= pollenRespawnTimer && !pollenIsSpawned)
       {
-        SpawnPollen(); 
+        animator.SetTrigger("openFlower");
+        StartCoroutine(SpawnPollen());
+        SpawnPollen();
       }
     }
   }
 
-  private void SpawnPollen()
+  private IEnumerator SpawnPollen()
   {
+    yield return new WaitForSeconds(1);
     print("Spawning pollen");
     Instantiate(pollenPrefab, new Vector3(transform.position.x, transform.position.y + pollenSpawnHeight, transform.position.z), Quaternion.identity, transform);
   }
@@ -45,6 +50,10 @@ public class Flower : MonoBehaviour
   public void SetPollenIsSpawned(bool isPollenSpawned)
   {
     pollenIsSpawned = isPollenSpawned;
+    if (!pollenIsSpawned)
+    {
+      animator.SetTrigger("closeFlower");
+    }
   }
 
 }
