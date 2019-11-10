@@ -11,6 +11,11 @@ public class GuardBeeController : MonoBehaviour
 
     private GameStates GS;
 
+
+    private void Update()
+    {
+        transform.Rotate(0f, 0.5f, 0f);
+    }
     /*private void Start()
     {
         startPos = transform.position;
