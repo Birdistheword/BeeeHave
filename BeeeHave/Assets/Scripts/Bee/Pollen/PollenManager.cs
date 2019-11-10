@@ -37,7 +37,7 @@ public class PollenManager : MonoBehaviour
 
   public void AddPollen(int pollenAmount)
   {
-    pollen += pollenAmount /*+ pollenEfficiencyApplication*/;
+    pollen += pollenAmount + pollenEfficiency;
   }
 
   public void RemovePollen(int pollenAmount)
