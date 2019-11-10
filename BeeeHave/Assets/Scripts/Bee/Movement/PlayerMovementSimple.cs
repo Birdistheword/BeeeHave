@@ -49,7 +49,7 @@ public class PlayerMovementSimple : MonoBehaviour
   {
     if (!dashing)
     {
-      moveSFX.Play();
+      if(moveSFX) moveSFX.Play();
 
       //Get the Values from Input
       Move.x = Move.x * moveSpeed * Time.fixedDeltaTime;

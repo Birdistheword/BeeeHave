@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hive : MonoBehaviour
 {
@@ -40,8 +41,7 @@ public class Hive : MonoBehaviour
         if(health <= 0)
         {
             GS.STATE = GameStates.GameState.LoseCondition;
-            print("LoseCondition");
-            Time.timeScale = 0f;
+            SceneManager.LoadScene("Main Menu");
         }
 
        
