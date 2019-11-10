@@ -5,25 +5,23 @@ using UnityEngine;
 public class PlayerMovementSimple : MonoBehaviour
 {
   [SerializeField] Rigidbody rb;
-  [SerializeField] float moveSpeed, dashSpeed, dashTime, rotationSpeed, dashCooldown = 2f;
+  [SerializeField] float moveSpeed, startSpeed, dashSpeed, dashTime, rotationSpeed, dashCooldown = 2f;
   private Vector3 Move;
 
   private float hSpeed, vSpeed, dashCd = 0f;
   private bool dashing = false;
 
-  [SerializeField] float speedStatValue = 2f;
-  [SerializeField] float speedStatApplication;
 
   StatManager statManager;
 
   private void Start()
   {
     statManager = GetComponent<StatManager>();
+    startSpeed = moveSpeed;
   }
 
   private void Update()
   {
-    speedStatApplication = statManager.GetSpeedStatLevel() * speedStatValue;
     Move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
 
@@ -47,9 +45,9 @@ public class PlayerMovementSimple : MonoBehaviour
   {
     if (!dashing)
     {
-      //Get the Values from Input
-      Move.x = Move.x * moveSpeed * Time.fixedDeltaTime * speedStatApplication;
-      Move.z = Move.z * moveSpeed * Time.fixedDeltaTime * speedStatApplication;
+        //Get the Values from Input
+        Move.x = Move.x * moveSpeed * Time.fixedDeltaTime;
+        Move.z = Move.z * moveSpeed * Time.fixedDeltaTime;
 
 
       Vector3 Movement = new Vector3(Move.x, 0f, Move.z);
@@ -106,5 +104,14 @@ public class PlayerMovementSimple : MonoBehaviour
     dashing = false;
   }
 
+    public void AddSpeed(float addedSpeed)
+    {
+        moveSpeed += addedSpeed;
+    }
+
+    public void ResetSpeed()
+    {
+        moveSpeed = startSpeed;
+    }
 
 }

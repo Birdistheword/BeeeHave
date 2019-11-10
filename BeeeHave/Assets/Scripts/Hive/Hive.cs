@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hive : MonoBehaviour
 {
-  bool playerisIn;
+    bool playerisIn;
     public int health = 10;
     private GameStates GS;
 
