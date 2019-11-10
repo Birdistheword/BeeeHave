@@ -30,10 +30,12 @@ public class Flower : MonoBehaviour
     else
     {
       timeSinceSpawnedPollen += Time.deltaTime;
+
       if (timeSinceSpawnedPollen >= pollenRespawnTimer && !pollenIsSpawned)
       {
         animator.SetTrigger("flowerOpening");
         StartCoroutine(SpawnPollen());
+        SpawnPollen();
       }
     }
   }
