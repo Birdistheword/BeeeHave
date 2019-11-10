@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &590713176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1266760181962205402, guid: 38235922cc5e97f4a9b9de68c262a8d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5597815873236170465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1897873944
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,25 +209,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 24.602001, y: 121.701004, z: 0}
---- !u!1 &1915842167 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1361725553, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-    type: 3}
-  m_PrefabInstance: {fileID: 5597815873236170465}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1915842168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915842167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0e4959c04c71444c98c62ea1d734858, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: d439949227631a244b20c022c83cf6d7, type: 2}
 --- !u!1001 &5597815873236170465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -233,10 +220,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Start Scene UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 1361725553, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1266760183238980562, guid: 38235922cc5e97f4a9b9de68c262a8d2,
         type: 3}
@@ -293,75 +276,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1738321101993037094, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3136222615421872467, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3136222615421872467, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3136222615421872467, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+    - target: {fileID: 1228047228, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3136222615421872467, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1915842168}
-    - target: {fileID: 3136222615421872467, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetVolume
+    - target: {fileID: 1228047228, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 3136222615421872467, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    - target: {fileID: 1228047228, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228047228, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228047228, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 590713176}
+    - target: {fileID: 1228047228, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228047228, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 3136222615421872467, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_MinValue
-      value: -80
+    - target: {fileID: 2063006304, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
+      propertyPath: m_text
+      value: "In this game you collect Pollens from Flowers to Upgrade either YOUR
+        BEE or YOUR HIVE. \nTHE COLLECTIVE or THE INDIVIDUAL - which will it be for
+        you?\nYou can buy more Flowers (that will Spawn more Pollens over time) or
+        Buy Guard bees for the Hive\nFor you, you can Increase Move Speed or the MAX
+        amount of Pollen you can carry\nEvery 40-60 seconds a ear attacks your hive.
+        It has 1-4 health. Each guard deals 1 damage to it. If you dash into it it,
+        it dies immediately, but so does your bee ( don't worry you get a new one
+        - but with no Upgrades!)\nCONTROLS\nLeft Shift - Dash\nQ - Open Shop (When
+        you are directly over it)\nStay in Pollen for 1 sec to take it. "
       objectReference: {fileID: 0}
-    - target: {fileID: 3136222615421872467, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_MaxValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8916247267045759442, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8916247267045759442, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8916247267045759442, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8790192709621496633, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8790192709621496633, guid: 38235922cc5e97f4a9b9de68c262a8d2,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
+    - target: {fileID: 1241929747, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
+      propertyPath: m_text
+      value: Back
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
