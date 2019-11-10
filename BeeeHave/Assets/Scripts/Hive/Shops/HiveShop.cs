@@ -23,11 +23,12 @@ public class HiveShop : MonoBehaviour
   [SerializeField] int[] bearRepelentPrice;
 
   [SerializeField] int maxBeeGuards;
-  int beeGuardAmount;
+  int beeGuardAmount = 0;
   [SerializeField] int[] beeGuardPrice;
 
   bool playerIsIn;
   bool canBuyItem;
+  bool canBuyGuards = true;
 
   int itemPrice;
 
@@ -35,6 +36,7 @@ public class HiveShop : MonoBehaviour
   PollenManager pollenManager;
   FlowerSpawner flowerSpawner;
   Hive hive;
+  DefenseBeeManager defenseBeeManager;
 
   private void OnTriggerEnter(Collider other)
   {
@@ -51,15 +53,23 @@ public class HiveShop : MonoBehaviour
     pollenManager = FindObjectOfType<PollenManager>();
     hive = FindObjectOfType<Hive>();
     statManager = FindObjectOfType<StatManager>();
+    defenseBeeManager = FindObjectOfType<DefenseBeeManager>();
     SetFlowerText(flowerBuyPrice.ToString());
     SetBearRepelentText(bearRepelentPrice[bearRepelentsUsed].ToString());
+    SetBeeText(beeGuardPrice[beeGuardAmount].ToString());
   }
 
   private void Update()
   {
-    if (beeGuardAmount >= maxBeeGuards)
+    if (beeGuardAmount >= maxBeeGuards && canBuyGuards)
     {
       shopUI.transform.GetChild(1).GetComponent<Button>().interactable = false;
+      canBuyGuards = false;
+    }
+    if (beeGuardAmount < maxBeeGuards && !canBuyGuards)
+    {
+      shopUI.transform.GetChild(1).GetComponent<Button>().interactable = false;
+      canBuyGuards = false;
     }
 
     if (playerIsIn && Input.GetKeyDown(KeyCode.Q))
@@ -99,15 +109,21 @@ public class HiveShop : MonoBehaviour
   public void BuyBeeDefender()
   {
     canBuyItem = false;
-    //itemPrice = beeGuardPrice[hive.GetBeeGuardAmount()];
+    beeGuardAmount = defenseBeeManager.GetBeeNumber();
+    itemPrice = beeGuardPrice[defenseBeeManager.GetBeeNumber()];
     if (pollenManager.GetPollenCount() >= itemPrice)
     {
       canBuyItem = true;
     }
     if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
+    if (!canBuyGuards) { return; }
+    pollenManager.RemovePollen(itemPrice);
+    defenseBeeManager.SpawnGuardBee();
     beeGuardAmount++;
+    SetBeeText(beeGuardPrice[beeGuardAmount].ToString());
     if (beeGuardAmount >= maxBeeGuards)
     {
+      SetBeeText(" ");
       shopUI.transform.GetChild(1).GetComponent<Button>().interactable = false;
     }
   }
@@ -120,13 +136,12 @@ public class HiveShop : MonoBehaviour
       canBuyItem = true;
     }
     if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
-    pollenManager.AddPollen(-flowerBuyPrice);
+    pollenManager.RemovePollen(flowerBuyPrice);
     flowerBuyPrice += flowerPriceAdder;
     flowerSpawner.SpawnFlower(flowerPrefab);
     if (flowerSpawner.FlowersMaxed())
     {
       SetFlowerText(flowerBuyPrice.ToString(" "));
-      print("setting price to null");
       shopUI.transform.GetChild(2).GetComponent<Button>().interactable = false;
       return;
     }
@@ -138,6 +153,7 @@ public class HiveShop : MonoBehaviour
 
   public void BuyBearRepelent()
   {
+    canBuyItem = false;
     if (bearRepelentsUsed >= 3) { return; }
     itemPrice = bearRepelentPrice[bearRepelentsUsed];
     print(itemPrice);
@@ -146,6 +162,7 @@ public class HiveShop : MonoBehaviour
       canBuyItem = true;
     }
     if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
+    pollenManager.RemovePollen(itemPrice);
     bearRepelentsUsed++;
     if (bearRepelentPrice.Length > bearRepelentsUsed)
     {

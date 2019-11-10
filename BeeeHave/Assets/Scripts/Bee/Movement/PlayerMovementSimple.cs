@@ -11,10 +11,19 @@ public class PlayerMovementSimple : MonoBehaviour
   private float hSpeed, vSpeed, dashCd = 0f;
   private bool dashing = false;
 
+  [SerializeField] float speedStatValue = 2f;
+  [SerializeField] float speedStatApplication;
 
+  StatManager statManager;
+
+  private void Start()
+  {
+    statManager = GetComponent<StatManager>();
+  }
 
   private void Update()
   {
+    speedStatApplication = statManager.GetSpeedStatLevel() * speedStatValue;
     Move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
 
@@ -38,10 +47,9 @@ public class PlayerMovementSimple : MonoBehaviour
   {
     if (!dashing)
     {
-
       //Get the Values from Input
-      Move.x = Move.x * moveSpeed * Time.fixedDeltaTime;
-      Move.z = Move.z * moveSpeed * Time.fixedDeltaTime;
+      Move.x = Move.x * moveSpeed * Time.fixedDeltaTime * speedStatApplication;
+      Move.z = Move.z * moveSpeed * Time.fixedDeltaTime * speedStatApplication;
 
 
       Vector3 Movement = new Vector3(Move.x, 0f, Move.z);
@@ -50,7 +58,7 @@ public class PlayerMovementSimple : MonoBehaviour
       if (Movement != Vector3.zero)
       {
         Movement = Quaternion.Euler(0f, 45f, 0f) * Move;
-        Debug.Log("Fixing rotation!");
+        //Debug.Log("Fixing rotation!");
       }
 
       rb.velocity = Movement;
@@ -59,7 +67,7 @@ public class PlayerMovementSimple : MonoBehaviour
       if (Movement != Vector3.zero)
       {
         transform.forward = Vector3.Lerp(transform.forward, Movement, rotationSpeed * Time.fixedDeltaTime);
-        Debug.Log("Rotating");
+        //Debug.Log("Rotating");
       }
 
     }
