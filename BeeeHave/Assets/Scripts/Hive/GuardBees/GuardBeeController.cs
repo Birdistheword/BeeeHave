@@ -11,7 +11,7 @@ public class GuardBeeController : MonoBehaviour
 
     private GameStates GS;
 
-    private void Start()
+    /*private void Start()
     {
         startPos = transform.position;
         GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
@@ -60,6 +60,6 @@ public class GuardBeeController : MonoBehaviour
         }
         
     }
-
+    */
 
 }
