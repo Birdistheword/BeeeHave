@@ -10278,7 +10278,7 @@ PrefabInstance:
     - target: {fileID: 4744271253281008608, guid: 11458c4336098704984103da56ebf309,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23
+      value: 18.8
       objectReference: {fileID: 0}
     - target: {fileID: 4744271253281008608, guid: 11458c4336098704984103da56ebf309,
         type: 3}
@@ -10288,7 +10288,7 @@ PrefabInstance:
     - target: {fileID: 4744271253281008608, guid: 11458c4336098704984103da56ebf309,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 101
+      value: 105.8
       objectReference: {fileID: 0}
     - target: {fileID: 4744271253281008608, guid: 11458c4336098704984103da56ebf309,
         type: 3}
@@ -10366,6 +10366,10 @@ PrefabInstance:
       propertyPath: HealthBars.Array.data[3]
       value: 
       objectReference: {fileID: 25257922}
+    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 945411818}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11458c4336098704984103da56ebf309, type: 3}
 --- !u!114 &5597815873526538668

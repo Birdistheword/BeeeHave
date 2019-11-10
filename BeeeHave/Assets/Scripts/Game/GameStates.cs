@@ -16,6 +16,7 @@ public class GameStates : MonoBehaviour
         DidDamage,
         LoseCondition,
         BearRetreat,
+        BearHasRetreated,
         ResetTimer
     }
 
