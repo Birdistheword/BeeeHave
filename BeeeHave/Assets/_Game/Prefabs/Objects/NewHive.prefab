@@ -590,7 +590,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.32, y: 10.85, z: 7.13}
+  m_Size: {x: 7.32, y: 10.85, z: 42.93}
   m_Center: {x: -0.0000041682324, y: -3.2, z: 3.2089512}
 --- !u!114 &2652967638720828620
 MonoBehaviour:
@@ -611,8 +611,9 @@ MonoBehaviour:
   bearRepelentCostText: {fileID: 0}
   flowerBuyPrice: 3
   flowerPriceAdder: 1
-  beePrefab: {fileID: 0}
-  flowerPrefab: {fileID: 5976362582091187064, guid: d77077af67bd01943b711e6fc29e5ab2,
+  beePrefab: {fileID: 6236346554008644947, guid: ea1525d742f1f7148836c25a19c19614,
+    type: 3}
+  flowerPrefab: {fileID: 1130164238482371278, guid: f7d3b5a4e229e754cb462573ec74347f,
     type: 3}
   bearRepelentsUsed: 0
   bearRepelentPrice: 3200000064000000c8000000
@@ -643,7 +644,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.32, y: 10.85, z: 7.13}
+  m_Size: {x: 7.32, y: 10.85, z: 42.93}
   m_Center: {x: -0.0000041682324, y: -3.2, z: 3.2089512}
 --- !u!114 &2652967637655981492
 MonoBehaviour:
