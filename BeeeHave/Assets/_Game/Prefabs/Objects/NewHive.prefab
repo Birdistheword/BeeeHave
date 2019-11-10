@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 0.5
+  maxAltitudeChange: 2
 --- !u!1 &948580702
 GameObject:
   m_ObjectHideFlags: 0

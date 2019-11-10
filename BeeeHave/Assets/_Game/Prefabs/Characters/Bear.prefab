@@ -356,6 +356,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4744271253281008608}
   - component: {fileID: 945411817}
+  - component: {fileID: 8182273835944474780}
+  - component: {fileID: 945411818}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Bear
@@ -396,9 +398,48 @@ MonoBehaviour:
   BearStartPos: {fileID: 0}
   movSpeed: 3
   Hive: {fileID: 0}
+  anim: {fileID: 945411818}
+  HealthBars:
+  - {fileID: 1288112331}
+  - {fileID: 1737866658}
+  - {fileID: 1514349296}
+  - {fileID: 25257922}
   startAttacking: 0
   isAttacking: 0
   didDamage: 0
+--- !u!136 &8182273835944474780
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4744271253281008609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.06
+  m_Height: 3.58
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &945411818
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4744271253281008609}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67a3379648927e446b16ad607e565d3b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4744271253014773253
 PrefabInstance:
   m_ObjectHideFlags: 0
