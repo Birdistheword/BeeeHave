@@ -16,7 +16,7 @@ public class Pollen : MonoBehaviour
 
   [SerializeField] int pollenAmount = 10;
 
-    [SerializeField] GameObject PickUpEffect; 
+  [SerializeField] GameObject PickUpEffect;
 
   bool pollenWasGiven;
 
@@ -56,10 +56,10 @@ public class Pollen : MonoBehaviour
       other.GetComponent<PollenManager>().AddPollen(pollenAmount);
       pollenWasGiven = true;
       print("Player got pollen");
-    Instantiate(PickUpEffect, transform.position, Quaternion.identity);
+      Instantiate(PickUpEffect, transform.position, Quaternion.identity);
     }
     flowerParent.SetPollenIsSpawned(false);
     print("Pollen spawn timer is reset now");
-    Destroy(gameObject, timeToDestroyPollen);
+    Destroy(gameObject);
   }
 }
