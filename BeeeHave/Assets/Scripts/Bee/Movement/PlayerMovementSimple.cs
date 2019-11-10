@@ -114,4 +114,18 @@ public class PlayerMovementSimple : MonoBehaviour
         moveSpeed = startSpeed;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(dashing)
+        {
+            if(collision.gameObject.tag == "Bear")
+            {
+                // WE STUNG THE BEAR
+                collision.gameObject.GetComponent<BearController>().TakeDamage(4);
+
+                // Reset the bee
+                ResetSpeed();
+            }
+        }
+    }
 }

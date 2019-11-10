@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b79aaba7a6d2245a49bc80103d25f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pollenPrefab: {fileID: 7381558364822288498, guid: 595160a3d816e344f8b3c4e2b27f52ce,
+  pollenPrefab: {fileID: 7381558364822288498, guid: 0e0450ae995a0af4a82ab5f7115e1532,
     type: 3}
   pollenSpawnHeight: 6
   pollenRespawnTimer: 10

@@ -424,7 +424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &81905376
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1532,6 +1532,20 @@ PrefabInstance:
       propertyPath: bearRepelentCostText
       value: 
       objectReference: {fileID: 202064980}
+    - target: {fileID: 2652967638720828620, guid: 813b509f6b07de144bf647d1e6fa6c19,
+        type: 3}
+      propertyPath: beePrefab
+      value: 
+      objectReference: {fileID: 6236346554008644947, guid: ea1525d742f1f7148836c25a19c19614,
+        type: 3}
+    - target: {fileID: 1964821605, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
+      propertyPath: m_Size.z
+      value: 42.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003534385, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
+      propertyPath: m_Size.z
+      value: 42.93
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
 --- !u!1 &256813371
@@ -7240,17 +7254,17 @@ PrefabInstance:
     - target: {fileID: 4887180743749905449, guid: e28b9bd967f0cc240865f0e5e4af823d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.343895
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4887180743749905449, guid: e28b9bd967f0cc240865f0e5e4af823d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 33.086075
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4887180743749905449, guid: e28b9bd967f0cc240865f0e5e4af823d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.039474
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 4887180743749905449, guid: e28b9bd967f0cc240865f0e5e4af823d,
         type: 3}
@@ -7301,7 +7315,7 @@ PrefabInstance:
     - target: {fileID: 4887180743749905450, guid: e28b9bd967f0cc240865f0e5e4af823d,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e28b9bd967f0cc240865f0e5e4af823d, type: 3}
@@ -8134,7 +8148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1792242007
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9988,9 +10002,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eede557b5e19612419cc1bcc635a14b6, type: 2}
-    m_RemovedComponents:
-    - {fileID: 878852854, guid: abdffe57550968248863e09bbd90bbcb, type: 3}
-    - {fileID: 3095281128665596522, guid: abdffe57550968248863e09bbd90bbcb, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdffe57550968248863e09bbd90bbcb, type: 3}
 --- !u!1 &797978940174543117
 GameObject:
@@ -10250,7 +10262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &5597815873604674732
 GameObject:
   m_ObjectHideFlags: 0
