@@ -8,6 +8,7 @@ public class PlayerMovementSimple : MonoBehaviour
   [SerializeField] float moveSpeed, startSpeed, dashSpeed, dashTime, rotationSpeed, dashCooldown = 2f;
 
   [SerializeField] AudioSource dashSFX;
+  [SerializeField] AudioSource moveSFX;
 
   private Vector3 Move;
 
@@ -48,6 +49,8 @@ public class PlayerMovementSimple : MonoBehaviour
   {
     if (!dashing)
     {
+      moveSFX.Play();
+
       //Get the Values from Input
       Move.x = Move.x * moveSpeed * Time.fixedDeltaTime;
       Move.z = Move.z * moveSpeed * Time.fixedDeltaTime;
