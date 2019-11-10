@@ -47,6 +47,11 @@ public class BeeUpgradeShop : MonoBehaviour
     pollenManager = FindObjectOfType<PollenManager>();
     hive = FindObjectOfType<Hive>();
     statManager = FindObjectOfType<StatManager>();
+    ResetPricesToDefault();
+  }
+
+  public void ResetPricesToDefault()
+  {
     UpdatePriceTexts(speedStatUpgradePrice[0].ToString(), efficiencyStatUpgradePrice[0].ToString(), carryStatUpgradePrice[0].ToString());
   }
 
@@ -56,6 +61,7 @@ public class BeeUpgradeShop : MonoBehaviour
     UpdateEfficiencyPriceText(efficiencyParameter);
     UpdateCarryPriceText(carryParameter);
   }
+
   private void UpdateSpeedPriceText(string speedParameter)
   {
     print("Update speed price text to" + speedParameter);
@@ -197,7 +203,6 @@ public class BeeUpgradeShop : MonoBehaviour
       carryMaxed = true;
     }
   }
-
 
   public void OpenShop()
   {

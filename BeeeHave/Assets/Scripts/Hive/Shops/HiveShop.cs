@@ -66,7 +66,7 @@ public class HiveShop : MonoBehaviour
       shopUI.transform.GetChild(1).GetComponent<Button>().interactable = false;
       canBuyGuards = false;
     }
-    if (beeGuardAmount < maxBeeGuards && !canBuyGuards)
+    else if (beeGuardAmount < maxBeeGuards && !canBuyGuards)
     {
       shopUI.transform.GetChild(1).GetComponent<Button>().interactable = false;
       canBuyGuards = false;
@@ -107,6 +107,31 @@ public class HiveShop : MonoBehaviour
     }
   }
 
+  private void OnTriggerStay(Collider other)
+  {
+    if (other.tag == "Player" && playerIsIn)
+    {
+      beeGuardAmount = defenseBeeManager.GetBeeNumber();
+      if (beeGuardAmount < maxBeeGuards)
+      {
+        SetBeeDefenderUIActive();
+
+      }
+    }
+  }
+
+  public void SetBeeDefenderUIActive()
+  {
+    shopUI.transform.GetChild(1).GetComponent<Button>().interactable = true;
+    canBuyGuards = true;
+    SetBeeDefenderPrice();
+  }
+
+  public void SetBeeDefenderPrice()
+  {
+    beeGuardCostText.text = beeGuardPrice[defenseBeeManager.GetBeeNumber()].ToString();
+  }
+
   public void BuyBeeDefender()
   {
     canBuyItem = false;
@@ -120,7 +145,7 @@ public class HiveShop : MonoBehaviour
     if (!canBuyGuards) { return; }
     pollenManager.RemovePollen(itemPrice);
     defenseBeeManager.SpawnGuardBee();
-    beeGuardAmount++;
+    beeGuardAmount = defenseBeeManager.GetBeeNumber();
     SetBeeText(beeGuardPrice[beeGuardAmount].ToString());
     if (beeGuardAmount >= maxBeeGuards)
     {
@@ -179,6 +204,11 @@ public class HiveShop : MonoBehaviour
   public void OpenShop()
   {
     shopUI.enabled = true;
+    beeGuardAmount = defenseBeeManager.GetBeeNumber();
+    if (beeGuardAmount < maxBeeGuards)
+    {
+      SetBeeDefenderUIActive();
+    }
   }
 
   public void CloseShop()
