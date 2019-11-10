@@ -4296,26 +4296,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802957242}
   m_CullTransparentMesh: 0
---- !u!1 &815523803 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 294292159442915443, guid: abdffe57550968248863e09bbd90bbcb,
-    type: 3}
-  m_PrefabInstance: {fileID: 302229631523216252}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &815523807
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815523803}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -1499314806704854765, guid: 7707978f248b1eb46a8da255d67b4b79, type: 3}
 --- !u!1 &863321624
 GameObject:
   m_ObjectHideFlags: 0
@@ -10002,40 +9982,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8267027606976029613, guid: abdffe57550968248863e09bbd90bbcb,
-        type: 3}
-      propertyPath: speedStatValue
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3095281128665596522, guid: abdffe57550968248863e09bbd90bbcb,
-        type: 3}
-      propertyPath: pollen
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 3095281128665596522, guid: abdffe57550968248863e09bbd90bbcb,
-        type: 3}
-      propertyPath: maxAmountOfPollen
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3095281128665596522, guid: abdffe57550968248863e09bbd90bbcb,
-        type: 3}
-      propertyPath: startMaxAmountOfPollen
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3095281128665596522, guid: abdffe57550968248863e09bbd90bbcb,
-        type: 3}
-      propertyPath: pollenCarryStatValue
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 878852854, guid: abdffe57550968248863e09bbd90bbcb, type: 3}
-      propertyPath: pollenCarryStatValue
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2029257716711892143, guid: abdffe57550968248863e09bbd90bbcb,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: eede557b5e19612419cc1bcc635a14b6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdffe57550968248863e09bbd90bbcb, type: 3}
 --- !u!1 &797978940174543117

@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3036468886878462837}
   moveSpeed: 500
+  startSpeed: 0
   dashSpeed: 45
   dashTime: 0.13
   rotationSpeed: 7
@@ -135,7 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6cb40694b81ba4f9cda32b725479df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pollen: 0
+  pollen: 50
+  maxAmountOfPollen: 100
+  startMaxAmountOfPollen: 100
+  pollenEfficiency: 0
 --- !u!114 &878852854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +155,9 @@ MonoBehaviour:
   speedStatLevel: 1
   efficiencyStatLevel: 1
   PollenCarryStatLevel: 1
+  pollenEfficiencyStatValue: 2
+  pollenCarryStatValue: 10
+  speedStatValue: 1
 --- !u!1001 &8589600609064733050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -218,6 +225,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 7707978f248b1eb46a8da255d67b4b79,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eede557b5e19612419cc1bcc635a14b6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7707978f248b1eb46a8da255d67b4b79, type: 3}
 --- !u!4 &3625064479430140512 stripped
