@@ -511,7 +511,7 @@ PrefabInstance:
         type: 3}
       propertyPath: beePrefab
       value: 
-      objectReference: {fileID: 6236346554008644947, guid: ea1525d742f1f7148836c25a19c19614,
+      objectReference: {fileID: 8792136720909451153, guid: 435c9351d16e8df4da04fbc9641ae4b8,
         type: 3}
     - target: {fileID: 1964821605, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
       propertyPath: m_Size.z
@@ -823,6 +823,11 @@ PrefabInstance:
       propertyPath: BearPrefab
       value: 
       objectReference: {fileID: 945411816}
+    - target: {fileID: 998076371, guid: 992102f65787aa4408fb69bc805ac2f8, type: 3}
+      propertyPath: GuardbeePrefab
+      value: 
+      objectReference: {fileID: 8792136720909451153, guid: 435c9351d16e8df4da04fbc9641ae4b8,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 992102f65787aa4408fb69bc805ac2f8, type: 3}
 --- !u!114 &609376587 stripped
@@ -1720,6 +1725,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BEEEEEE Player Main
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840085714332364177, guid: abdffe57550968248863e09bbd90bbcb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6454992527993650256, guid: abdffe57550968248863e09bbd90bbcb,
         type: 3}

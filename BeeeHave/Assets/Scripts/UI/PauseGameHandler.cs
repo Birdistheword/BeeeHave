@@ -11,6 +11,7 @@ public class PauseGameHandler : MonoBehaviour
   private void Start()
   {
     pauseMenuPrefab.enabled = false;
+    Time.timeScale = 1;
   }
 
   void Update()
