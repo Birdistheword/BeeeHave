@@ -6,14 +6,10 @@ public class PollenManager : MonoBehaviour
 {
   [SerializeField] int pollen;
 
-  [SerializeField] int pollenEfficiencyStatValue = 2;
-  [SerializeField] int pollenEfficiencyApplication;
-
-  [SerializeField] int pollenCarryStatValue = 2;
-  [SerializeField] int pollenCarryStatApplication;
-
   [SerializeField] int maxAmountOfPollen;
   [SerializeField] int startMaxAmountOfPollen;
+
+  [SerializeField] int pollenEfficiency = 0;
 
   StatManager statManager;
 
@@ -24,10 +20,6 @@ public class PollenManager : MonoBehaviour
 
   private void Update()
   {
-    pollenCarryStatApplication = pollenCarryStatValue * statManager.GetCarryStatLevel();
-    print(statManager.GetCarryStatLevel());
-    maxAmountOfPollen = pollenCarryStatApplication + startMaxAmountOfPollen;
-    pollenEfficiencyApplication = pollenEfficiencyStatValue * statManager.GetEfficiencyStatLevel();
     if (pollen > maxAmountOfPollen)
     {
       pollen = maxAmountOfPollen;
@@ -45,11 +37,26 @@ public class PollenManager : MonoBehaviour
 
   public void AddPollen(int pollenAmount)
   {
-    pollen += pollenAmount + pollenEfficiencyApplication;
+    pollen += pollenAmount + pollenEfficiency;
   }
 
   public void RemovePollen(int pollenAmount)
   {
     pollen -= pollenAmount;
+  }
+
+  public void IncreaseMaxAmountOfPollen(int pollenAmountIncreaser)
+  {
+    maxAmountOfPollen += pollenAmountIncreaser;
+  }
+
+  public int GetMaxPollenAmount()
+  {
+    return maxAmountOfPollen;
+  }
+
+  public void IncreasePollenEfficiency(int pollenEffciencyAmountIncrease)
+  {
+    pollenEfficiency += pollenEffciencyAmountIncrease;
   }
 }
