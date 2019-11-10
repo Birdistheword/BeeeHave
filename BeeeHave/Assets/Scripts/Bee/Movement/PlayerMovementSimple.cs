@@ -10,7 +10,7 @@ public class PlayerMovementSimple : MonoBehaviour
   [SerializeField] AudioSource dashSFX;
   [SerializeField] AudioSource moveSFX;
 
-    [SerializeField] Animator ModelAnim;
+  [SerializeField] Animator ModelAnim;
 
   private Vector3 Move;
 
@@ -29,10 +29,10 @@ public class PlayerMovementSimple : MonoBehaviour
   private void Update()
   {
     Move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        //ModelAnim.SetFloat("Speed", Move.x);
+    //ModelAnim.SetFloat("Speed", Move.x);
 
 
-    if (Input.GetKeyDown("space"))
+    if (Input.GetKeyDown(KeyCode.LeftShift))
     {
       Dash();
     }
@@ -51,7 +51,7 @@ public class PlayerMovementSimple : MonoBehaviour
   {
     if (!dashing)
     {
-      if(moveSFX) moveSFX.Play();
+      if (moveSFX) moveSFX.Play();
 
       //Get the Values from Input
       Move.x = Move.x * moveSpeed * Time.fixedDeltaTime;

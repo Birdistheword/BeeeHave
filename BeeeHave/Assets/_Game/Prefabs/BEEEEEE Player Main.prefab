@@ -344,7 +344,8 @@ MonoBehaviour:
   rotationSpeed: 7
   dashCooldown: 2
   dashSFX: {fileID: 368574178}
-  moveSFX: {fileID: 0}
+  moveSFX: {fileID: 268594819230305927}
+  ModelAnim: {fileID: 0}
 --- !u!54 &3036468886878462837
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -425,8 +426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6cb40694b81ba4f9cda32b725479df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pollen: 500
-  maxAmountOfPollen: 1000
+  pollen: 0
+  maxAmountOfPollen: 200
   startMaxAmountOfPollen: 100
   pollenEfficiency: 0
 --- !u!114 &878852854
@@ -445,8 +446,8 @@ MonoBehaviour:
   efficiencyStatLevel: 1
   PollenCarryStatLevel: 1
   pollenEfficiencyStatValue: 2
-  pollenCarryStatValue: 10
-  speedStatValue: 1
+  pollenCarryStatValue: 50
+  speedStatValue: 20
 --- !u!1001 &8589600609064733050
 PrefabInstance:
   m_ObjectHideFlags: 0
