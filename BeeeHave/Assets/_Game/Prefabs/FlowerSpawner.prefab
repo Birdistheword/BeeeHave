@@ -38,7 +38,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4887180743749905451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03e485961020db44bbd5bbda0709bcf8, type: 3}
   m_Name: 
@@ -50,6 +50,5 @@ MonoBehaviour:
   flowerSpawnPointPrefab: {fileID: 4927705060568680726, guid: 9aa3c873efacdeb4b87e17593f60ce91,
     type: 3}
   flowerPointList: []
-  flowerPrefab: {fileID: 5976362582091187064, guid: d77077af67bd01943b711e6fc29e5ab2,
+  flowerPrefab: {fileID: 1130164238482371278, guid: f7d3b5a4e229e754cb462573ec74347f,
     type: 3}
-  flowerSpawnPoint: {fileID: 0}
