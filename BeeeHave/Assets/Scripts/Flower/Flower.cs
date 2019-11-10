@@ -44,7 +44,7 @@ public class Flower : MonoBehaviour
   {
     yield return new WaitForSeconds(1);
     print("Spawning pollen");
-    Instantiate(pollenPrefab, new Vector3(transform.position.x, transform.position.y + pollenSpawnHeight, transform.position.z), Quaternion.identity, transform);
+    Instantiate(pollenPrefab, new Vector3(transform.position.x, pollenSpawnHeight, transform.position.z), Quaternion.identity, transform);
   }
 
   public void SetPollenIsSpawned(bool isPollenSpawned)
