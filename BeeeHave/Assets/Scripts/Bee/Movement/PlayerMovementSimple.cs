@@ -29,7 +29,6 @@ public class PlayerMovementSimple : MonoBehaviour
   private void Update()
   {
     Move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-    //ModelAnim.SetFloat("Speed", Move.x);
 
 
     if (Input.GetKeyDown(KeyCode.LeftShift))
