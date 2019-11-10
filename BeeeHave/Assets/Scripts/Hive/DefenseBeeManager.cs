@@ -21,6 +21,9 @@ public class DefenseBeeManager : MonoBehaviour
 
   private void Update()
   {
+
+        print("Amount of bees:" + amountOfCurrentBees);
+        print("SpCpounter:" + SpCounter);
     if (Input.GetKeyDown(KeyCode.L))
     {
       SpawnGuardBee();
