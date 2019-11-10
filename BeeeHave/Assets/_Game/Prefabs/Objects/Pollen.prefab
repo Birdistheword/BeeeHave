@@ -128,6 +128,8 @@ MonoBehaviour:
   minTimeToPickupPollen: 2
   timeToDestroyPollen: 2
   pollenAmount: 10
+  PickUpEffect: {fileID: 7590226476944360130, guid: e400647d87709654c90bc0b0518dc964,
+    type: 3}
 --- !u!135 &7945726988768009368
 SphereCollider:
   m_ObjectHideFlags: 0
