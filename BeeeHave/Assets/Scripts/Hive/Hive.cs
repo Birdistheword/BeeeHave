@@ -5,12 +5,14 @@ using UnityEngine;
 public class Hive : MonoBehaviour
 {
     bool playerisIn;
-    public int health = 10;
+    public int health = 5, HBcounter = 0;
     private GameStates GS;
+    [SerializeField]
+    GameObject[] HealthBars;
 
-    
 
-  private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter(Collider other)
   {
     if (other.tag == "Player")
     {
@@ -28,6 +30,8 @@ public class Hive : MonoBehaviour
     private void Start()
     {
         GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
+
+
     }
 
     // IF health is 0 or below, toggle lose condition Game State
@@ -45,6 +49,12 @@ public class Hive : MonoBehaviour
 
     public void TakeDamage(int _dmg)
     {
+        if( HBcounter < 5 )
+        {
+            HealthBars[HBcounter].SetActive(false);
+            HBcounter++;
+
+        }
         health -= _dmg;
         print("Took" + _dmg + "damage");
     }

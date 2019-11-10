@@ -249,6 +249,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7361471}
   m_CullTransparentMesh: 0
+--- !u!1 &25257922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 25257922, guid: 11458c4336098704984103da56ebf309,
+    type: 3}
+  m_PrefabInstance: {fileID: 4744271253679947017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &35356698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,16 +1532,6 @@ PrefabInstance:
       propertyPath: bearRepelentCostText
       value: 
       objectReference: {fileID: 202064980}
-    - target: {fileID: 5749978624729200868, guid: 813b509f6b07de144bf647d1e6fa6c19,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ab4d0f6f30aed724c81efe7ea4c7befb, type: 2}
-    - target: {fileID: 5749978625794039916, guid: 813b509f6b07de144bf647d1e6fa6c19,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ab4d0f6f30aed724c81efe7ea4c7befb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
 --- !u!1 &256813371
@@ -5625,7 +5621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161153286}
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 197.51991, y: 78.893005, z: 18.329216}
+  m_LocalPosition: {x: 197.5199, y: 78.893005, z: 18.32922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190739847}
@@ -5920,6 +5916,12 @@ PrefabInstance:
       objectReference: {fileID: 8286302207295467562}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 324772f96b3e84942ae94c392c95e44b, type: 3}
+--- !u!1 &1288112331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1288112331, guid: 11458c4336098704984103da56ebf309,
+    type: 3}
+  m_PrefabInstance: {fileID: 4744271253679947017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1295352019
 GameObject:
   m_ObjectHideFlags: 0
@@ -6894,6 +6896,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496992887}
   m_CullTransparentMesh: 0
+--- !u!1 &1514349296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1514349296, guid: 11458c4336098704984103da56ebf309,
+    type: 3}
+  m_PrefabInstance: {fileID: 4744271253679947017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1516634354
 GameObject:
   m_ObjectHideFlags: 0
@@ -7282,6 +7290,17 @@ PrefabInstance:
     - target: {fileID: 4887180743749905449, guid: e28b9bd967f0cc240865f0e5e4af823d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887180743749905450, guid: e28b9bd967f0cc240865f0e5e4af823d,
+        type: 3}
+      propertyPath: flowerSpawnPoint
+      value: 
+      objectReference: {fileID: 4927705060568680726, guid: 9aa3c873efacdeb4b87e17593f60ce91,
+        type: 3}
+    - target: {fileID: 4887180743749905450, guid: e28b9bd967f0cc240865f0e5e4af823d,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7756,6 +7775,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708415869}
   m_CullTransparentMesh: 0
+--- !u!1 &1737866658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1737866658, guid: 11458c4336098704984103da56ebf309,
+    type: 3}
+  m_PrefabInstance: {fileID: 4744271253679947017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1749836944
 GameObject:
   m_ObjectHideFlags: 0
@@ -8689,7 +8714,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933983429}
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 197.51991, y: 78.893005, z: 18.329216}
+  m_LocalPosition: {x: 197.5199, y: 78.893005, z: 18.32922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 166115498}
@@ -10080,6 +10105,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
+      propertyPath: HealthBars.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
       propertyPath: BearTarget
       value: 
       objectReference: {fileID: 147981394}
@@ -10095,6 +10124,22 @@ PrefabInstance:
       propertyPath: Hive
       value: 
       objectReference: {fileID: 117756685}
+    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
+      propertyPath: HealthBars.Array.data[0]
+      value: 
+      objectReference: {fileID: 1288112331}
+    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
+      propertyPath: HealthBars.Array.data[1]
+      value: 
+      objectReference: {fileID: 1737866658}
+    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
+      propertyPath: HealthBars.Array.data[2]
+      value: 
+      objectReference: {fileID: 1514349296}
+    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
+      propertyPath: HealthBars.Array.data[3]
+      value: 
+      objectReference: {fileID: 25257922}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11458c4336098704984103da56ebf309, type: 3}
 --- !u!114 &5597815873526538668
