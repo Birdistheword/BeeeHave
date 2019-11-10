@@ -10,7 +10,7 @@ public class TimeToBearAttack : MonoBehaviour
     [SerializeField] Image img;
 
 
-    float[] attackIntervals =  { 3f, 60f, 60f, 50f, 50f, 40f, 40f, 35f };
+    float[] attackIntervals =  { 60f, 60f, 60f, 50f, 50f, 40f, 40f, 35f };
 
     private float counter = 0f, timeTillAttack;
     private bool countingTime = true;

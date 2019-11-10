@@ -28,9 +28,10 @@ public class Flower : MonoBehaviour
     else
     {
       timeSinceSpawnedPollen += Time.deltaTime;
+
       if (timeSinceSpawnedPollen >= pollenRespawnTimer && !pollenIsSpawned)
       {
-        SpawnPollen();
+        SpawnPollen(); 
       }
     }
   }
