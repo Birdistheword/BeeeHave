@@ -27,16 +27,14 @@ public class Flower : MonoBehaviour
     {
       timeSinceSpawnedPollen = 0;
     }
-    else
-    {
-      timeSinceSpawnedPollen += Time.deltaTime;
+    timeSinceSpawnedPollen += Time.deltaTime;
 
-      if (timeSinceSpawnedPollen >= pollenRespawnTimer && !pollenIsSpawned)
-      {
-        animator.SetTrigger("openFlower");
-        StartCoroutine(SpawnPollen());
-        SpawnPollen();
-      }
+    if (timeSinceSpawnedPollen >= pollenRespawnTimer && !pollenIsSpawned)
+    {
+      pollenIsSpawned = true;
+      animator.SetTrigger("openFlower");
+      StartCoroutine(SpawnPollen());
+      SpawnPollen();
     }
   }
 
