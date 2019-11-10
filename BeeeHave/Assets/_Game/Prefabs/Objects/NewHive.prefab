@@ -1,22 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &2652967637655981492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6336794562846577840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16213946697983e419a8af7d44c81292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopType: 0
-  shopUI: {fileID: 0}
-  speedStatUpgradePrice: 0300000004000000050000000600000007000000
-  efficiencyStatUpgradePrice: 0300000004000000050000000600000007000000
-  carryStatUpgradePrice: 0300000004000000050000000600000007000000
 --- !u!1 &2652967637984945102
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,14 +61,106 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopType: 0
   shopUI: {fileID: 0}
+  beeGuardCostText: {fileID: 0}
+  flowerCostText: {fileID: 0}
+  bearRepelentCostText: {fileID: 0}
   flowerBuyPrice: 3
   flowerPriceAdder: 1
   beePrefab: {fileID: 0}
-  flowerPrefab: {fileID: 0}
+  flowerPrefab: {fileID: 5976362582091187064, guid: d77077af67bd01943b711e6fc29e5ab2,
+    type: 3}
   bearRepelentsUsed: 0
-  bearRepelentPrice: 
-  maxBeeGuards: 0
-  beeGuardPrice: 
+  bearRepelentPrice: 3200000064000000c8000000
+  maxBeeGuards: 5
+  beeGuardPrice: 140000001e000000280000003c00000050000000
+--- !u!64 &1964821604
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336794561762855992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -2796218688781888746, guid: 7b3bc7fa66f00c743985098002302510, type: 3}
+--- !u!65 &1964821605
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336794561762855992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.32, y: 10.85, z: 7.13}
+  m_Center: {x: -0.0000041682324, y: -3.2, z: 3.2089512}
+--- !u!114 &2652967637655981492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336794562846577840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16213946697983e419a8af7d44c81292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopType: 0
+  shopUI: {fileID: 0}
+  speedStatText: {fileID: 0}
+  efficiencyStatText: {fileID: 0}
+  carryStatText: {fileID: 0}
+  speedStatUpgradePrice: 0a000000140000001e0000002800000032000000
+  efficiencyStatUpgradePrice: 0a000000140000001e0000002800000032000000
+  carryStatUpgradePrice: 0a000000140000001e0000002800000032000000
+--- !u!64 &1003534384
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336794562846577840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -2796218688781888746, guid: 7b3bc7fa66f00c743985098002302510, type: 3}
+--- !u!65 &1003534385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336794562846577840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.32, y: 10.85, z: 7.13}
+  m_Center: {x: -0.0000041682324, y: -3.2, z: 3.2089512}
+--- !u!64 &1796254338
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336794563028796009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -2796218688781888746, guid: 7b3bc7fa66f00c743985098002302510, type: 3}
 --- !u!1001 &2652967637503056736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,7 +171,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 7b3bc7fa66f00c743985098002302510,
         type: 3}
       propertyPath: m_Name
-      value: me_Hive01
+      value: Main Building
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b3bc7fa66f00c743985098002302510,
         type: 3}
@@ -168,8 +243,19 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 7b3bc7fa66f00c743985098002302510,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ab4d0f6f30aed724c81efe7ea4c7befb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3bc7fa66f00c743985098002302510, type: 3}
+--- !u!1 &6336794563028796009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 7b3bc7fa66f00c743985098002302510,
+    type: 3}
+  m_PrefabInstance: {fileID: 2652967637503056736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7037869252994642042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 7b3bc7fa66f00c743985098002302510,
@@ -186,7 +272,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 7b3bc7fa66f00c743985098002302510,
         type: 3}
       propertyPath: m_Name
-      value: me_Hive01 (1)
+      value: BeeShop
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b3bc7fa66f00c743985098002302510,
         type: 3}
@@ -282,7 +368,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 7b3bc7fa66f00c743985098002302510,
         type: 3}
       propertyPath: m_Name
-      value: me_Hive01 (2)
+      value: Hive Shop
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b3bc7fa66f00c743985098002302510,
         type: 3}
