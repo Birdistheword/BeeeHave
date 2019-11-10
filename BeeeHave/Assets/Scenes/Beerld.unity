@@ -1532,20 +1532,6 @@ PrefabInstance:
       propertyPath: bearRepelentCostText
       value: 
       objectReference: {fileID: 202064980}
-    - target: {fileID: 2652967638720828620, guid: 813b509f6b07de144bf647d1e6fa6c19,
-        type: 3}
-      propertyPath: beePrefab
-      value: 
-      objectReference: {fileID: 6236346554008644947, guid: ea1525d742f1f7148836c25a19c19614,
-        type: 3}
-    - target: {fileID: 1003534385, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
-      propertyPath: m_Size.z
-      value: 42.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 1964821605, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
-      propertyPath: m_Size.z
-      value: 42.93
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
 --- !u!1 &256813371
@@ -10328,7 +10314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5597815873604674735
 Transform:
   m_ObjectHideFlags: 0
