@@ -181,7 +181,6 @@ public class HiveShop : MonoBehaviour
     canBuyItem = false;
     if (bearRepelentsUsed >= 3) { return; }
     itemPrice = bearRepelentPrice[bearRepelentsUsed];
-    print(itemPrice);
     if (pollenManager.GetPollenCount() >= itemPrice)
     {
       canBuyItem = true;

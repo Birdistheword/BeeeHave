@@ -11,9 +11,11 @@ public class BearController : MonoBehaviour
   Animator animator;
   [SerializeField] GameObject[] HealthBars;
 
-  [HideInInspector]
-  public bool startAttacking = false, isAttacking = false, didDamage = false;
-  private bool firstAttack = true, hasRetreated = false, currentlyMoving = false;
+  [SerializeField] bool startAttacking = false;
+  [SerializeField] bool didDamage = false;
+  [SerializeField] bool firstAttack = true;
+  [SerializeField] bool hasRetreated = false;
+  [SerializeField] bool currentlyMoving = false;
 
   private int[] healthPool = { 1, 2, 2, 2, 3, 3, 3, 4 };
   private int currentHealth = 1;
@@ -46,9 +48,9 @@ public class BearController : MonoBehaviour
 
   private void WhenAtHive()
   {
+    currentlyMoving = false;
     gameState.STATE = GameStates.GameState.BearAtHive;
     StartCoroutine(WaitForBeeAttack());
-
   }
 
   private IEnumerator WaitForBeeAttack()
@@ -148,7 +150,6 @@ public class BearController : MonoBehaviour
     {
       gameState.STATE = GameStates.GameState.BearMovingToHive;
       SetHealth();
-      isAttacking = true;
     }
   }
 

@@ -12,8 +12,9 @@ public class TimeToBearAttack : MonoBehaviour
 
   float[] attackIntervals = { 60f, 60f, 60f, 50f, 50f, 40f, 40f, 35f };
 
-  private float counter = 0f, timeTillAttack;
-  private bool countingTime = true;
+  [SerializeField] float counter = 0f;
+  [SerializeField] float timeTillAttack;
+  [SerializeField] bool countingTime = true;
   public bool sentAttack = false;
   private GameStates GS;
 
