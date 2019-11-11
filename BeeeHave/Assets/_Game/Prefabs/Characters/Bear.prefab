@@ -396,9 +396,8 @@ MonoBehaviour:
   BearTarget: {fileID: 0}
   BearDamageTarget: {fileID: 0}
   BearStartPos: {fileID: 0}
-  movSpeed: 3
+  movSpeed: 1
   Hive: {fileID: 0}
-  anim: {fileID: 945411818}
   HealthBars:
   - {fileID: 1288112331}
   - {fileID: 1737866658}

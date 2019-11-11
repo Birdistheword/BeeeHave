@@ -120,12 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &25257922 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 25257922, guid: 11458c4336098704984103da56ebf309,
-    type: 3}
-  m_PrefabInstance: {fileID: 4744271253679947017}
-  m_PrefabAsset: {fileID: 0}
 --- !u!223 &81905379 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 6765659548001801401, guid: 4c3848c19d4fd044e8e8b324309eeda8,
@@ -390,7 +384,7 @@ PrefabInstance:
     - target: {fileID: 2652967637984945102, guid: 813b509f6b07de144bf647d1e6fa6c19,
         type: 3}
       propertyPath: m_Name
-      value: NewHive
+      value: Hive
       objectReference: {fileID: 0}
     - target: {fileID: 2652967637984945102, guid: 813b509f6b07de144bf647d1e6fa6c19,
         type: 3}
@@ -1370,7 +1364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190739847}
   m_Layer: 0
-  m_Name: '-----Cameras&UI-----'
+  m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1405,10 +1399,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game
-      objectReference: {fileID: 0}
-    - target: {fileID: 1791331958, guid: 324772f96b3e84942ae94c392c95e44b, type: 3}
-      propertyPath: m_TagString
-      value: GameStateManager
       objectReference: {fileID: 0}
     - target: {fileID: 4933256416058251904, guid: 324772f96b3e84942ae94c392c95e44b,
         type: 3}
@@ -1477,18 +1467,6 @@ PrefabInstance:
       objectReference: {fileID: 8286302207295467562}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 324772f96b3e84942ae94c392c95e44b, type: 3}
---- !u!1 &1288112331 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1288112331, guid: 11458c4336098704984103da56ebf309,
-    type: 3}
-  m_PrefabInstance: {fileID: 4744271253679947017}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1514349296 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1514349296, guid: 11458c4336098704984103da56ebf309,
-    type: 3}
-  m_PrefabInstance: {fileID: 4744271253679947017}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1586457531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1556,40 +1534,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4887180743749905450, guid: e28b9bd967f0cc240865f0e5e4af823d,
-        type: 3}
-      propertyPath: flowerSpawnPoint
-      value: 
-      objectReference: {fileID: 4927705060568680726, guid: 9aa3c873efacdeb4b87e17593f60ce91,
-        type: 3}
-    - target: {fileID: 4887180743749905450, guid: e28b9bd967f0cc240865f0e5e4af823d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887180743749905450, guid: e28b9bd967f0cc240865f0e5e4af823d,
-        type: 3}
-      propertyPath: xspawnDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887180743749905450, guid: e28b9bd967f0cc240865f0e5e4af823d,
-        type: 3}
-      propertyPath: zspawnDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887180743749905450, guid: e28b9bd967f0cc240865f0e5e4af823d,
-        type: 3}
-      propertyPath: zRange
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e28b9bd967f0cc240865f0e5e4af823d, type: 3}
---- !u!1 &1737866658 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1737866658, guid: 11458c4336098704984103da56ebf309,
-    type: 3}
-  m_PrefabInstance: {fileID: 4744271253679947017}
-  m_PrefabAsset: {fileID: 0}
 --- !u!223 &1792242000 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 6765659547296211722, guid: 4c3848c19d4fd044e8e8b324309eeda8,
@@ -1862,10 +1808,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
-      propertyPath: HealthBars.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
       propertyPath: BearTarget
       value: 
       objectReference: {fileID: 147981394}
@@ -1881,26 +1823,6 @@ PrefabInstance:
       propertyPath: Hive
       value: 
       objectReference: {fileID: 117756685}
-    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
-      propertyPath: HealthBars.Array.data[0]
-      value: 
-      objectReference: {fileID: 1288112331}
-    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
-      propertyPath: HealthBars.Array.data[1]
-      value: 
-      objectReference: {fileID: 1737866658}
-    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
-      propertyPath: HealthBars.Array.data[2]
-      value: 
-      objectReference: {fileID: 1514349296}
-    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
-      propertyPath: HealthBars.Array.data[3]
-      value: 
-      objectReference: {fileID: 25257922}
-    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
-      propertyPath: movSpeed
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11458c4336098704984103da56ebf309, type: 3}
 --- !u!223 &5597815873526538670 stripped

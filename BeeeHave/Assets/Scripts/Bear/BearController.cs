@@ -183,9 +183,10 @@ public class BearController : MonoBehaviour
       HealthBars[0].SetActive(true);
       firstAttack = false;
     }
-
     else
+    {
       currentHealth = HealthPool[Random.Range(0, HealthPool.Length)];
+    }
 
     for (int i = 0; i < currentHealth; i++)
     {

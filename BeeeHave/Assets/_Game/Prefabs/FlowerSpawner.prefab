@@ -44,11 +44,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xRange: 5
-  yRange: 5
-  xspawnDistance: 10
-  zspawnDistance: 10
+  zRange: 5
+  xspawnDistance: 20
+  zspawnDistance: 20
   flowerSpawnPointPrefab: {fileID: 4927705060568680726, guid: 9aa3c873efacdeb4b87e17593f60ce91,
     type: 3}
   flowerPointList: []
   flowerPrefab: {fileID: 1130164238482371278, guid: f7d3b5a4e229e754cb462573ec74347f,
     type: 3}
+  flowerSpawnHeight: 1
