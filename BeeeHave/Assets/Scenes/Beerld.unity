@@ -523,27 +523,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 16873295, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2029765241, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 948580702, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1934333738, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 437052567, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 511011566, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
@@ -667,25 +667,6 @@ Terrain:
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
   m_GroupingID: 0
   m_AllowAutoConnect: 1
---- !u!1 &435405630 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1791331958, guid: 324772f96b3e84942ae94c392c95e44b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1256997263}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &435405632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435405630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 024adda5bf4758c4e866834bed325b37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  STATE: 0
 --- !u!1 &570001474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,7 +1261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161153286}
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 197.5199, y: 78.893005, z: 18.32922}
+  m_LocalPosition: {x: 197.51991, y: 78.893005, z: 18.329216}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190739847}
@@ -1523,7 +1504,7 @@ PrefabInstance:
     - target: {fileID: 4887180743749905449, guid: e28b9bd967f0cc240865f0e5e4af823d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.8
+      value: -15.9
       objectReference: {fileID: 0}
     - target: {fileID: 4887180743749905449, guid: e28b9bd967f0cc240865f0e5e4af823d,
         type: 3}
@@ -1533,7 +1514,7 @@ PrefabInstance:
     - target: {fileID: 4887180743749905449, guid: e28b9bd967f0cc240865f0e5e4af823d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 107.2
+      value: 26.8
       objectReference: {fileID: 0}
     - target: {fileID: 4887180743749905449, guid: e28b9bd967f0cc240865f0e5e4af823d,
         type: 3}
@@ -1589,12 +1570,17 @@ PrefabInstance:
     - target: {fileID: 4887180743749905450, guid: e28b9bd967f0cc240865f0e5e4af823d,
         type: 3}
       propertyPath: xspawnDistance
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4887180743749905450, guid: e28b9bd967f0cc240865f0e5e4af823d,
         type: 3}
       propertyPath: zspawnDistance
-      value: 15
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887180743749905450, guid: e28b9bd967f0cc240865f0e5e4af823d,
+        type: 3}
+      propertyPath: zRange
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e28b9bd967f0cc240865f0e5e4af823d, type: 3}
@@ -1610,6 +1596,25 @@ Canvas:
     type: 3}
   m_PrefabInstance: {fileID: 6765659547920061018}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1867823797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3840085714332364177, guid: abdffe57550968248863e09bbd90bbcb,
+    type: 3}
+  m_PrefabInstance: {fileID: 302229631523216252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1867823800
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867823797}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.16
+  m_Center: {x: 0, y: 0, z: 0.27}
 --- !u!114 &1896498084 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6765659547635487230, guid: 4c3848c19d4fd044e8e8b324309eeda8,
@@ -1682,7 +1687,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933983429}
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 197.5199, y: 78.893005, z: 18.32922}
+  m_LocalPosition: {x: 197.51991, y: 78.893005, z: 18.329216}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 166115498}
@@ -1786,7 +1791,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2782938740419920551, guid: abdffe57550968248863e09bbd90bbcb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: abdffe57550968248863e09bbd90bbcb, type: 3}
 --- !u!1001 &4744271253679947017
 PrefabInstance:
@@ -1891,6 +1897,10 @@ PrefabInstance:
       propertyPath: HealthBars.Array.data[3]
       value: 
       objectReference: {fileID: 25257922}
+    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
+      propertyPath: movSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11458c4336098704984103da56ebf309, type: 3}
 --- !u!223 &5597815873526538670 stripped

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class FlowerSpawner : MonoBehaviour
 {
   [SerializeField] int xRange = 100;
-  [SerializeField] int yRange = 100;
+  [SerializeField] int zRange = 100;
 
   [SerializeField] int xspawnDistance;
   [SerializeField] int zspawnDistance;
@@ -30,7 +30,7 @@ public class FlowerSpawner : MonoBehaviour
     }
     Instantiate(flowerPrefab, flowerPointList[i].transform.position, Quaternion.identity);
     flowerCount++;
-    if (flowerCount == xRange * yRange)
+    if (flowerCount == xRange * zRange)
     {
       print("max Amount of flowers reached");
       flowersMaxed = true;
@@ -50,7 +50,7 @@ public class FlowerSpawner : MonoBehaviour
 
   private void Start()
   {
-    flowerSpawnPoints = new GameObject[xRange, yRange];
+    flowerSpawnPoints = new GameObject[xRange, zRange];
     SpawnFlowerPoints();
     for (int i = 0; i < 3; i++)
     {
@@ -62,10 +62,10 @@ public class FlowerSpawner : MonoBehaviour
   {
     for (int i = 0; i < xRange; i++)
     {
-      for (int j = 0; j < yRange; j++)
+      for (int j = 0; j < zRange; j++)
       {
         flowerSpawnPoints[i, j] = flowerSpawnPointPrefab;
-        flowerSpawnPoint = Instantiate(flowerSpawnPoints[i, j], new Vector3(i * xspawnDistance, flowerSpawnHeight, j * zspawnDistance), Quaternion.identity);
+        flowerSpawnPoint = Instantiate(flowerSpawnPoints[i, j], new Vector3(transform.position.x + i * xspawnDistance, flowerSpawnHeight, transform.position.z + j * zspawnDistance), Quaternion.identity);
         flowerPointList.Add(flowerSpawnPoint.GetComponent<FlowerSpawnPoint>());
       }
     }

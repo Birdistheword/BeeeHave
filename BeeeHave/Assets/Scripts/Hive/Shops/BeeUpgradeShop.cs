@@ -64,7 +64,6 @@ public class BeeUpgradeShop : MonoBehaviour
 
   private void UpdateSpeedPriceText(string speedParameter)
   {
-    print("Update speed price text to" + speedParameter);
     speedStatText.text = speedParameter.ToString();
   }
 
