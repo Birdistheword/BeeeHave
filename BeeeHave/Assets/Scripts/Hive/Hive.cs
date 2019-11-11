@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Hive : MonoBehaviour
 {
-    bool playerisIn;
-    public int health = 5, HBcounter = 0;
-    private GameStates GS;
-    [SerializeField]
-    GameObject[] HealthBars;
+  bool playerisIn;
+  [SerializeField] int health = 5;
+  [SerializeField] int healthBarCounter = 0;
+  private GameStates GS;
+  [SerializeField] GameObject[] HealthBars;
 
 
 
-    private void OnTriggerEnter(Collider other)
+  private void OnTriggerEnter(Collider other)
   {
     if (other.tag == "Player")
     {
@@ -28,34 +28,31 @@ public class Hive : MonoBehaviour
       playerisIn = false;
     }
   }
-    private void Start()
+
+  private void Start()
+  {
+    GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
+  }
+
+  // IF health is 0 or below, toggle lose condition Game State
+  private void Update()
+  {
+    if (health <= 0)
     {
-        GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
-
-
+      GS.STATE = GameStates.GameState.LoseCondition;
+      SceneManager.LoadScene(0);
     }
+  }
 
-    // IF health is 0 or below, toggle lose condition Game State
-    private void Update()
+  public void TakeDamage(int damage)
+  {
+    if (healthBarCounter < 5 && damage > 0)
     {
-        if(health <= 0)
-        {
-            GS.STATE = GameStates.GameState.LoseCondition;
-            SceneManager.LoadScene("Main Menu");
-        }
-
-       
+      HealthBars[healthBarCounter].SetActive(false);
+      print(HealthBars[healthBarCounter]);
+      healthBarCounter++;
     }
-
-    public void TakeDamage(int _dmg)
-    {
-        if( HBcounter < 5 )
-        {
-            HealthBars[HBcounter].SetActive(false);
-            HBcounter++;
-
-        }
-        health -= _dmg;
-        print("Took" + _dmg + "damage");
-    }
+    health -= damage;
+    print("Took " + damage + " damage");
+  }
 }

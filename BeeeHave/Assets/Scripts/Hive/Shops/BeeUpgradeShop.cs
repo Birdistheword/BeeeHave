@@ -93,12 +93,10 @@ public class BeeUpgradeShop : MonoBehaviour
     }
     if (playerIsIn && Input.GetKeyDown(KeyCode.Q))
     {
-      print("Opening shop");
       OpenShop();
     }
     if (playerIsIn && Input.GetKeyDown(KeyCode.Escape))
     {
-      print("Closing shop");
       CloseShop();
     }
   }

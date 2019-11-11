@@ -539,6 +539,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2652967637984945100, guid: 813b509f6b07de144bf647d1e6fa6c19,
+        type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 813b509f6b07de144bf647d1e6fa6c19, type: 3}
 --- !u!1 &314133883
@@ -1737,6 +1742,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3095281128665596522, guid: abdffe57550968248863e09bbd90bbcb,
+        type: 3}
+      propertyPath: pollen
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2782938740419920551, guid: abdffe57550968248863e09bbd90bbcb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: abdffe57550968248863e09bbd90bbcb, type: 3}
@@ -1821,6 +1831,22 @@ PrefabInstance:
       objectReference: {fileID: 147981395}
     - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
       propertyPath: Hive
+      value: 
+      objectReference: {fileID: 117756685}
+    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
+      propertyPath: bearTarget
+      value: 
+      objectReference: {fileID: 147981395}
+    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
+      propertyPath: bearStartPos
+      value: 
+      objectReference: {fileID: 147981393}
+    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
+      propertyPath: bearDamageTarget
+      value: 
+      objectReference: {fileID: 147981394}
+    - target: {fileID: 945411817, guid: 11458c4336098704984103da56ebf309, type: 3}
+      propertyPath: hive
       value: 
       objectReference: {fileID: 117756685}
     m_RemovedComponents: []
