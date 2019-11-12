@@ -10,24 +10,26 @@ public class TimeToBearAttack : MonoBehaviour
   [SerializeField] Image img;
 
 
-  float[] attackIntervals = { 60f, 60f, 60f, 50f, 50f, 40f, 40f, 35f };
+  public float[] attackIntervals = { 60, 50, 45, 35, 30, 25, 20, 10 };
+  [SerializeField] int attackIntervalIndex = 0;
 
   [SerializeField] float counter = 0f;
   [SerializeField] float timeTillAttack;
   [SerializeField] bool countingTime = true;
   [SerializeField] float beatRepelentEffectivness = 30f;
 
-  [SerializeField] Timers[] timers;
-
-  [SerializeField] Dictionary<DifficultyLevels, float[]> difficultyTable;
-
   public bool sentAttack = false;
   private GameStates gameState;
 
   void Start()
   {
-    timeTillAttack = attackIntervals[0];
+    timeTillAttack = attackIntervals[attackIntervalIndex++];
     gameState = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
+  }
+
+  public int GetAttackIntervalIndex()
+  {
+    return attackIntervalIndex;
   }
 
   void Update()
@@ -55,7 +57,14 @@ public class TimeToBearAttack : MonoBehaviour
 
   private void ChooseNewAttackInterval()
   {
-    timeTillAttack = attackIntervals[Random.Range(1, attackIntervals.Length)];
+    if (attackIntervalIndex >= attackIntervals.Length)
+    {
+      timeTillAttack = attackIntervals[attackIntervals.Length - 1];
+    }
+    else
+    {
+      timeTillAttack = attackIntervals[attackIntervalIndex++];
+    }
   }
 
   public bool CanBuyBearRepelent()
@@ -74,11 +83,5 @@ public class TimeToBearAttack : MonoBehaviour
   public void BearRepelent()
   {
     counter -= beatRepelentEffectivness;
-  }
-
-  [System.Serializable]
-  class Timers
-  {
-    DifficultyLevels difficultyLevels;
   }
 }

@@ -1418,6 +1418,52 @@ PrefabInstance:
       propertyPath: img
       value: 
       objectReference: {fileID: 8286302207295467562}
+    - target: {fileID: 4933256415687221484, guid: 324772f96b3e84942ae94c392c95e44b,
+        type: 3}
+      propertyPath: difficultyTimers
+      value: 
+      objectReference: {fileID: 11400000, guid: 802ed957558696c4a9f44903730f072a,
+        type: 2}
+    - target: {fileID: 4933256415687221484, guid: 324772f96b3e84942ae94c392c95e44b,
+        type: 3}
+      propertyPath: attackIntervals.Array.data[0]
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933256415687221484, guid: 324772f96b3e84942ae94c392c95e44b,
+        type: 3}
+      propertyPath: attackIntervals.Array.data[1]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933256415687221484, guid: 324772f96b3e84942ae94c392c95e44b,
+        type: 3}
+      propertyPath: attackIntervals.Array.data[2]
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933256415687221484, guid: 324772f96b3e84942ae94c392c95e44b,
+        type: 3}
+      propertyPath: attackIntervals.Array.data[3]
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933256415687221484, guid: 324772f96b3e84942ae94c392c95e44b,
+        type: 3}
+      propertyPath: attackIntervals.Array.data[4]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933256415687221484, guid: 324772f96b3e84942ae94c392c95e44b,
+        type: 3}
+      propertyPath: attackIntervals.Array.data[5]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933256415687221484, guid: 324772f96b3e84942ae94c392c95e44b,
+        type: 3}
+      propertyPath: attackIntervals.Array.data[6]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933256415687221484, guid: 324772f96b3e84942ae94c392c95e44b,
+        type: 3}
+      propertyPath: attackIntervals.Array.data[7]
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 324772f96b3e84942ae94c392c95e44b, type: 3}
 --- !u!1001 &1586457531

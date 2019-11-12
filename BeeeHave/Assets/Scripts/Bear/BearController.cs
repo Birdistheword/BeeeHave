@@ -17,17 +17,19 @@ public class BearController : MonoBehaviour
   [SerializeField] bool hasRetreated = false;
   [SerializeField] bool currentlyMoving = false;
 
-  private int[] healthPool = { 1, 2, 2, 2, 3, 3, 3, 4 };
+  [SerializeField] int[] health = { 1, 2, 2, 3, 3, 3, 4, 4 };
+
+  TimeToBearAttack timeToBearAttack;
+
   private int currentHealth = 1;
   private GameStates gameState;
   bool bearCanRetreat;
-
 
   void Start()
   {
     animator = GetComponent<Animator>();
     gameState = FindObjectOfType<GameStates>().GetComponent<GameStates>();
-
+    timeToBearAttack = FindObjectOfType<TimeToBearAttack>();
     // Deactivate Health Bars
     foreach (GameObject bar in HealthBars)
     {
@@ -168,7 +170,14 @@ public class BearController : MonoBehaviour
     }
     else
     {
-      currentHealth = healthPool[Random.Range(0, healthPool.Length)];
+      if (timeToBearAttack.attackIntervals.Length - 1 <= timeToBearAttack.GetAttackIntervalIndex())
+      {
+        currentHealth = health[timeToBearAttack.attackIntervals.Length - 1];
+      }
+      else
+      {
+        currentHealth = health[timeToBearAttack.GetAttackIntervalIndex()];
+      }
     }
 
     for (int i = 0; i < currentHealth; i++)

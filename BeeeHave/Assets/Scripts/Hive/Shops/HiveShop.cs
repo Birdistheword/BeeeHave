@@ -115,7 +115,6 @@ public class HiveShop : MonoBehaviour
       if (beeGuardAmount < maxBeeGuards)
       {
         SetBeeDefenderUIActive();
-
       }
     }
   }
@@ -146,11 +145,14 @@ public class HiveShop : MonoBehaviour
     pollenManager.RemovePollen(itemPrice);
     defenseBeeManager.SpawnGuardBee();
     beeGuardAmount = defenseBeeManager.GetBeeNumber();
-    SetBeeText(beeGuardPrice[beeGuardAmount].ToString());
     if (beeGuardAmount >= maxBeeGuards)
     {
       SetBeeText(" ");
       shopUI.transform.GetChild(1).GetComponent<Button>().interactable = false;
+    }
+    else
+    {
+      SetBeeText(beeGuardPrice[beeGuardAmount].ToString());
     }
   }
 
