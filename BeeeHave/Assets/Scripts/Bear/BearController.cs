@@ -75,13 +75,8 @@ public class BearController : MonoBehaviour
       // Damage the Hive
       animator.SetTrigger("StartAttack");
       gameState.STATE = GameStates.GameState.DidDamage;
-      print("bear's HP " + currentHealth);
       hive.GetComponent<Hive>().TakeDamage(currentHealth);
     }
-    /*else if (GS.STATE == GameStates.GameState.DidDamage && anim.GetCurrentAnimatorStateInfo(0).IsName("BearAttack"))
-    {
-
-    }*/
   }
 
   public void BearFinishedAttacking()
@@ -184,8 +179,6 @@ public class BearController : MonoBehaviour
     {
       HealthBars[i].SetActive(true);
     }
-
-    print("CurrenBearHealth: " + currentHealth);
   }
 
   // This method is called from GuardBeeController and the Player
@@ -197,7 +190,6 @@ public class BearController : MonoBehaviour
     }
 
     currentHealth -= _damage;
-    print("Bear took " + _damage + " damage");
   }
 
   public int GetHealth()

@@ -7,7 +7,6 @@ using System;
 
 public class BeeUpgradeShop : MonoBehaviour
 {
-  [SerializeField] ShopType shopType;
   [SerializeField] Canvas shopUI;
 
   [SerializeField] Text speedStatText;

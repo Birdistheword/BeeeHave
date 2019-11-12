@@ -6,7 +6,6 @@ using TMPro;
 
 public class HiveShop : MonoBehaviour
 {
-  [SerializeField] ShopType shopType;
   [SerializeField] Canvas shopUI;
 
   [SerializeField] Text beeGuardCostText;

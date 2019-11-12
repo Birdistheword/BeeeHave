@@ -63,6 +63,5 @@ public class Hive : MonoBehaviour
       healthBarCounter++;
     }
     health -= damage;
-    print("Took " + damage + " damage");
   }
 }
