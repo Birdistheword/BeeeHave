@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8792136720909451158}
   - component: {fileID: 8792136720909451159}
   m_Layer: 0
-  m_Name: New Guard Bee
+  m_Name: Bee Guard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,11 +60,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: anim_Bee-02-flying
-      objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 4cbae03b25e199940ab8a49016a902ba,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4cbae03b25e199940ab8a49016a902ba,
         type: 3}
@@ -126,6 +121,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eede557b5e19612419cc1bcc635a14b6, type: 2}
+    - target: {fileID: -6057140222963153312, guid: 4cbae03b25e199940ab8a49016a902ba,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 05e4a224deb997341bf0281068f8d623, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cbae03b25e199940ab8a49016a902ba, type: 3}
 --- !u!4 &4573762819140658375 stripped

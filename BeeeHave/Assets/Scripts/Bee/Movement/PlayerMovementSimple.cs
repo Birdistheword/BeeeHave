@@ -10,8 +10,6 @@ public class PlayerMovementSimple : MonoBehaviour
   [SerializeField] AudioSource dashSFX;
   [SerializeField] AudioSource moveSFX;
 
-  [SerializeField] Animator ModelAnim;
-
   private Vector3 Move;
 
   private float hSpeed, vSpeed, dashCd = 0f;
