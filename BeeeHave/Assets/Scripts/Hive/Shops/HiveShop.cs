@@ -36,6 +36,7 @@ public class HiveShop : MonoBehaviour
   FlowerSpawner flowerSpawner;
   Hive hive;
   DefenseBeeManager defenseBeeManager;
+  TimeToBearAttack timeToBearAttack;
 
   private void OnTriggerEnter(Collider other)
   {
@@ -53,6 +54,7 @@ public class HiveShop : MonoBehaviour
     hive = FindObjectOfType<Hive>();
     statManager = FindObjectOfType<StatManager>();
     defenseBeeManager = FindObjectOfType<DefenseBeeManager>();
+    timeToBearAttack = FindObjectOfType<TimeToBearAttack>();
     SetFlowerText(flowerBuyPrice.ToString());
     SetBearRepelentText(bearRepelentPrice[bearRepelentsUsed].ToString());
     SetBeeText(beeGuardPrice[beeGuardAmount].ToString());
@@ -185,6 +187,7 @@ public class HiveShop : MonoBehaviour
       canBuyItem = true;
     }
     if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
+    if (!timeToBearAttack.CanBuyBearRepelent()) { print("bear is not in Idle mode"); return; }
     pollenManager.RemovePollen(itemPrice);
     bearRepelentsUsed++;
     if (bearRepelentPrice.Length > bearRepelentsUsed)

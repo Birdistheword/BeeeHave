@@ -15,44 +15,59 @@ public class TimeToBearAttack : MonoBehaviour
   [SerializeField] float counter = 0f;
   [SerializeField] float timeTillAttack;
   [SerializeField] bool countingTime = true;
+  [SerializeField] float beatRepelentEffectivness = 30f;
   public bool sentAttack = false;
-  private GameStates GS;
+  private GameStates gameState;
 
   void Start()
   {
     timeTillAttack = attackIntervals[0];
-    GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
+    gameState = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
   }
-
 
   void Update()
   {
 
-    if (GS.STATE == GameStates.GameState.Idle)
+    if (gameState.STATE == GameStates.GameState.Idle)
     {
       counter += Time.deltaTime;
       img.fillAmount = (timeTillAttack - counter) / timeTillAttack;
     }
 
-    if (GS.STATE == GameStates.GameState.Idle && counter >= timeTillAttack && !sentAttack)
+    if (gameState.STATE == GameStates.GameState.Idle && counter >= timeTillAttack && !sentAttack)
     {
-      GS.STATE = GameStates.GameState.BearStartAttack;
+      gameState.STATE = GameStates.GameState.BearStartAttack;
     }
 
-    if (GS.STATE == GameStates.GameState.ResetTimer)
+    if (gameState.STATE == GameStates.GameState.ResetTimer)
     {
-      GS.STATE = GameStates.GameState.Idle;
+      gameState.STATE = GameStates.GameState.Idle;
       counter = 0f;
       ChooseNewAttackInterval();
       img.fillAmount = 1;
-
     }
-
-
   }
 
   private void ChooseNewAttackInterval()
   {
     timeTillAttack = attackIntervals[Random.Range(1, attackIntervals.Length)];
+  }
+
+  public bool CanBuyBearRepelent()
+  {
+    if (gameState.STATE == GameStates.GameState.Idle)
+    {
+      BearRepelent();
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  public void BearRepelent()
+  {
+    counter -= beatRepelentEffectivness;
   }
 }
