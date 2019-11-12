@@ -16,6 +16,11 @@ public class TimeToBearAttack : MonoBehaviour
   [SerializeField] float timeTillAttack;
   [SerializeField] bool countingTime = true;
   [SerializeField] float beatRepelentEffectivness = 30f;
+
+  [SerializeField] Timers[] timers;
+
+  [SerializeField] Dictionary<DifficultyLevels, float[]> difficultyTable;
+
   public bool sentAttack = false;
   private GameStates gameState;
 
@@ -69,5 +74,11 @@ public class TimeToBearAttack : MonoBehaviour
   public void BearRepelent()
   {
     counter -= beatRepelentEffectivness;
+  }
+
+  [System.Serializable]
+  class Timers
+  {
+    DifficultyLevels difficultyLevels;
   }
 }
