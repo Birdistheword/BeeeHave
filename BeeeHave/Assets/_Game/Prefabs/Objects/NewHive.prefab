@@ -611,8 +611,8 @@ MonoBehaviour:
   beeGuardCostText: {fileID: 0}
   flowerCostText: {fileID: 0}
   bearRepelentCostText: {fileID: 0}
-  flowerBuyPrice: 3
-  flowerPriceAdder: 1
+  flowerBuyPrice: 10
+  flowerPriceAdder: 2
   flowerPrefab: {fileID: 1130164238482371278, guid: f7d3b5a4e229e754cb462573ec74347f,
     type: 3}
   bearRepelentsUsed: 0
@@ -663,9 +663,9 @@ MonoBehaviour:
   speedStatText: {fileID: 0}
   efficiencyStatText: {fileID: 0}
   carryStatText: {fileID: 0}
-  speedStatUpgradePrice: 0a000000140000001e0000002800000032000000
-  efficiencyStatUpgradePrice: 0a000000140000001e0000002800000032000000
-  carryStatUpgradePrice: 0a000000140000001e0000002800000032000000
+  speedStatUpgradePrice: 140000001e000000320000004600000064000000
+  efficiencyStatUpgradePrice: 140000001e000000320000004600000064000000
+  carryStatUpgradePrice: 140000001e000000320000004600000064000000
 --- !u!64 &1796254338
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6cb40694b81ba4f9cda32b725479df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pollen: 200
+  pollen: 0
   maxAmountOfPollen: 200
   startMaxAmountOfPollen: 100
   pollenEfficiency: 0
@@ -432,7 +432,7 @@ MonoBehaviour:
   PollenCarryStatLevel: 1
   pollenEfficiencyStatValue: 2
   pollenCarryStatValue: 50
-  speedStatValue: 20
+  speedStatValue: 40
 --- !u!135 &1867823800
 SphereCollider:
   m_ObjectHideFlags: 0

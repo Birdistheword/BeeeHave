@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +10,11 @@ public class Flower : MonoBehaviour
 
   bool pollenIsSpawned;
 
-  float timeSinceSpawnedPollen = 0;
+  [SerializeField] float timeSinceSpawnedPollen = 0;
   [SerializeField] float pollenRespawnTimer;
+  [SerializeField] float minSpawnTime = 5;
+  [SerializeField] float maxSpawnTime = 10;
+
   Animator animator;
 
   private void Start()
@@ -35,6 +37,7 @@ public class Flower : MonoBehaviour
       animator.SetTrigger("openFlower");
       StartCoroutine(SpawnPollen());
       SpawnPollen();
+      pollenRespawnTimer = Random.Range(minSpawnTime, maxSpawnTime);
     }
   }
 
