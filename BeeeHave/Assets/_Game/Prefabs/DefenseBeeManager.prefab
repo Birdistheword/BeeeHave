@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73714cd61ed965549bec0bc1d9982363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GuardbeePrefab: {fileID: 6236346554008644947, guid: ea1525d742f1f7148836c25a19c19614,
+  GuardbeePrefab: {fileID: 8792136720909451153, guid: 435c9351d16e8df4da04fbc9641ae4b8,
     type: 3}
   BearPrefab: {fileID: 0}
   SpawnPoints:

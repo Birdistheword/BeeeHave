@@ -89,6 +89,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bearPrefab: {fileID: 0}
   img: {fileID: 0}
+  counter: 0
+  timeTillAttack: 0
+  countingTime: 1
   sentAttack: 0
 --- !u!1 &4933256416058251905
 GameObject:

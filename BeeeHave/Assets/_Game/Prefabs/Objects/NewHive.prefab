@@ -525,7 +525,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2652967637984945103
 Transform:
@@ -557,14 +557,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86dd3a2ed06e8fc42afe7177edb98979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  HBcounter: 0
+  health: 5
+  healthBarCounter: 0
   HealthBars:
   - {fileID: 16873295}
   - {fileID: 2029765241}
   - {fileID: 948580702}
   - {fileID: 1934333738}
   - {fileID: 437052567}
+  pollenDisplayCanvas: {fileID: 0}
+  looseScreenCanvas: {fileID: 0}
 --- !u!64 &1964821604
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -611,8 +613,6 @@ MonoBehaviour:
   bearRepelentCostText: {fileID: 0}
   flowerBuyPrice: 3
   flowerPriceAdder: 1
-  beePrefab: {fileID: 6236346554008644947, guid: ea1525d742f1f7148836c25a19c19614,
-    type: 3}
   flowerPrefab: {fileID: 1130164238482371278, guid: f7d3b5a4e229e754cb462573ec74347f,
     type: 3}
   bearRepelentsUsed: 0
@@ -691,6 +691,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Building
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7b3bc7fa66f00c743985098002302510,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b3bc7fa66f00c743985098002302510,
         type: 3}
@@ -793,6 +798,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeeShop
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7b3bc7fa66f00c743985098002302510,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b3bc7fa66f00c743985098002302510,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -893,6 +903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hive Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7b3bc7fa66f00c743985098002302510,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7b3bc7fa66f00c743985098002302510,
         type: 3}

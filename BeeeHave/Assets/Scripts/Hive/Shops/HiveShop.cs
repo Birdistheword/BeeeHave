@@ -16,7 +16,6 @@ public class HiveShop : MonoBehaviour
   [SerializeField] int flowerBuyPrice = 10;
   [SerializeField] int flowerPriceAdder = 1;
 
-  [SerializeField] GameObject beePrefab = null;
   [SerializeField] GameObject flowerPrefab = null;
 
   [SerializeField] int bearRepelentsUsed = 0;

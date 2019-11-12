@@ -22,9 +22,12 @@ public class DefenseBeeManager : MonoBehaviour
 
   private void Update()
   {
-    if (Input.GetKeyDown(KeyCode.L))
+    if (Debug.isDebugBuild)
     {
-      SpawnGuardBee();
+      if (Input.GetKeyDown(KeyCode.L))
+      {
+        SpawnGuardBee();
+      }
     }
 
     if (GS.STATE == GameStates.GameState.BearAtHive && amountOfCurrentBees > 0)

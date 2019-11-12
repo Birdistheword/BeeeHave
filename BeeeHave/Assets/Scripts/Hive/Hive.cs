@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,7 +12,8 @@ public class Hive : MonoBehaviour
   private GameStates GS;
   [SerializeField] GameObject[] HealthBars;
 
-
+  [SerializeField] Canvas pollenDisplayCanvas;
+  [SerializeField] Canvas looseScreenCanvas;
 
   private void OnTriggerEnter(Collider other)
   {
@@ -32,6 +34,7 @@ public class Hive : MonoBehaviour
   private void Start()
   {
     GS = GameObject.FindGameObjectWithTag("GameStateManager").GetComponent<GameStates>();
+    looseScreenCanvas.enabled = false;
   }
 
   // IF health is 0 or below, toggle lose condition Game State
@@ -40,8 +43,15 @@ public class Hive : MonoBehaviour
     if (health <= 0)
     {
       GS.STATE = GameStates.GameState.LoseCondition;
-      SceneManager.LoadScene(0);
+      LooseGame();
     }
+  }
+
+  private void LooseGame()
+  {
+    looseScreenCanvas.enabled = true;
+    pollenDisplayCanvas.enabled = false;
+    Time.timeScale = 0;
   }
 
   public void TakeDamage(int damage)

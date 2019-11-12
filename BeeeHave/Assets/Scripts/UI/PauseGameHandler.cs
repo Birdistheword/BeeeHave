@@ -30,11 +30,13 @@ public class PauseGameHandler : MonoBehaviour
   {
     Time.timeScale = 0;
     pauseMenuPrefab.enabled = true;
+    gameIsPaused = true;
   }
 
   public void ResumeGame()
   {
     Time.timeScale = 1;
     pauseMenuPrefab.enabled = false;
+    gameIsPaused = false;
   }
 }

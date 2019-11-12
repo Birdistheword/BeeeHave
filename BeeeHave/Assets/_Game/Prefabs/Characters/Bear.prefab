@@ -393,19 +393,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9277d6e67e1b6fb4c8ccba1e5b00953e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BearTarget: {fileID: 0}
-  BearDamageTarget: {fileID: 0}
-  BearStartPos: {fileID: 0}
+  bearTarget: {fileID: 0}
+  bearDamageTarget: {fileID: 0}
+  bearStartPos: {fileID: 0}
   movSpeed: 1
-  Hive: {fileID: 0}
+  hive: {fileID: 0}
   HealthBars:
   - {fileID: 1288112331}
   - {fileID: 1737866658}
   - {fileID: 1514349296}
   - {fileID: 25257922}
   startAttacking: 0
-  isAttacking: 0
   didDamage: 0
+  firstAttack: 1
+  hasRetreated: 0
+  currentlyMoving: 0
 --- !u!136 &8182273835944474780
 CapsuleCollider:
   m_ObjectHideFlags: 0

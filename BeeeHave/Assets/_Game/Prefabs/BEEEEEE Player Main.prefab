@@ -345,7 +345,6 @@ MonoBehaviour:
   dashCooldown: 2
   dashSFX: {fileID: 368574178}
   moveSFX: {fileID: 268594819230305927}
-  ModelAnim: {fileID: 0}
 --- !u!54 &3036468886878462837
 Rigidbody:
   m_ObjectHideFlags: 0
