@@ -13,9 +13,11 @@ public class BeeUpgradeShop : MonoBehaviour
   [SerializeField] Text efficiencyStatText;
   [SerializeField] Text carryStatText;
 
-  [SerializeField] int[] speedStatUpgradePrice;
-  [SerializeField] int[] efficiencyStatUpgradePrice;
-  [SerializeField] int[] carryStatUpgradePrice;
+  [SerializeField] int[] speedStatUpgradePrice = { 10, 30, 50, 70, 90 };
+  [SerializeField] int[] efficiencyStatUpgradePrice = { 10, 30, 50, 70, 90 };
+  [SerializeField] int[] carryStatUpgradePrice = { 10, 30, 50, 70, 90 };
+
+  Dictionary<BeeStat, int[]> statUpgradePrice = new Dictionary<BeeStat, int[]>();
 
   bool playerIsIn;
   bool canBuyItem;
@@ -25,18 +27,59 @@ public class BeeUpgradeShop : MonoBehaviour
   bool carryMaxed = false;
 
   int itemPrice;
+  int nextLevelPrice;
 
   StatManager statManager;
   PollenManager pollenManager;
   FlowerSpawner flowerSpawner;
   Hive hive;
 
-  private void OnTriggerEnter(Collider other)
+  public void OpenShop()
   {
-    if (other.tag == "Player")
-    {
-      playerIsIn = true;
-    }
+    shopUI.enabled = true;
+  }
+
+  public void CloseShop()
+  {
+    shopUI.enabled = false;
+  }
+
+  public void GiveStat(string statName)
+  {
+    //gets the stat from string parameter
+    BeeStat currentStat = CheckForStringStatInput(statName);
+
+    // calculates the price
+    itemPrice = CalculatePrice(currentStat);
+
+    // checks if can buy item
+    canBuyItem = CheckIfCanBuyItem(itemPrice);
+    if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
+
+    // adds level up and removes pollen from player
+    pollenManager.RemovePollen(itemPrice);
+    statManager.AddStat(currentStat);
+
+    // calculates next level price
+    nextLevelPrice = CalculatePrice(currentStat);
+
+    // updates the text of price for given stat
+    UpdateNextPriceText(currentStat);
+
+    // checks if given stat is maxed
+    CheckIfStatIsMaxed(currentStat);
+  }
+
+  public void ResetPricesToDefault()
+  {
+    UpdatePriceTexts(speedStatUpgradePrice[0].ToString(), efficiencyStatUpgradePrice[0].ToString(), carryStatUpgradePrice[0].ToString());
+  }
+
+  private void SetStatPrices()
+  {
+    statUpgradePrice[BeeStat.speedStat] = speedStatUpgradePrice;
+    statUpgradePrice[BeeStat.efficiencyStat] = efficiencyStatUpgradePrice;
+    statUpgradePrice[BeeStat.pollenCarryStat] = carryStatUpgradePrice;
   }
 
   private void Start()
@@ -46,37 +89,55 @@ public class BeeUpgradeShop : MonoBehaviour
     pollenManager = FindObjectOfType<PollenManager>();
     hive = FindObjectOfType<Hive>();
     statManager = FindObjectOfType<StatManager>();
+    SetStatPrices();
     ResetPricesToDefault();
   }
 
-  public void ResetPricesToDefault()
+  private void Update()
   {
-    UpdatePriceTexts(speedStatUpgradePrice[0].ToString(), efficiencyStatUpgradePrice[0].ToString(), carryStatUpgradePrice[0].ToString());
+    CheckIfMaxed();
+    if (playerIsIn && Input.GetKeyDown(KeyCode.Q))
+    {
+      OpenShop();
+    }
+    if (playerIsIn && Input.GetKeyDown(KeyCode.Escape))
+    {
+      CloseShop();
+    }
+  }
+
+  private void OnTriggerEnter(Collider other)
+  {
+    if (other.tag == "Player")
+    {
+      playerIsIn = true;
+    }
   }
 
   private void UpdatePriceTexts(string speedParameter, string efficiencyParameter, string carryParameter)
   {
-    UpdateSpeedPriceText(speedParameter);
-    UpdateEfficiencyPriceText(efficiencyParameter);
-    UpdateCarryPriceText(carryParameter);
+    UpdatePriceText(BeeStat.speedStat, speedParameter);
+    UpdatePriceText(BeeStat.efficiencyStat, efficiencyParameter);
+    UpdatePriceText(BeeStat.pollenCarryStat, carryParameter);
   }
 
-  private void UpdateSpeedPriceText(string speedParameter)
+  private void UpdatePriceText(BeeStat stat, string parameter)
   {
-    speedStatText.text = speedParameter.ToString();
+    if (stat == BeeStat.speedStat)
+    {
+      speedStatText.text = parameter.ToString();
+    }
+    if (stat == BeeStat.efficiencyStat)
+    {
+      efficiencyStatText.text = parameter.ToString();
+    }
+    if (stat == BeeStat.pollenCarryStat)
+    {
+      carryStatText.text = parameter.ToString();
+    }
   }
 
-  private void UpdateEfficiencyPriceText(string efficiencyParameter)
-  {
-    efficiencyStatText.text = efficiencyParameter.ToString();
-  }
-
-  private void UpdateCarryPriceText(string carryParameter)
-  {
-    carryStatText.text = carryParameter.ToString();
-  }
-
-  private void Update()
+  private void CheckIfMaxed()
   {
     if (speedMaxed)
     {
@@ -90,14 +151,6 @@ public class BeeUpgradeShop : MonoBehaviour
     {
       shopUI.transform.GetChild(3).GetComponent<Button>().interactable = false;
     }
-    if (playerIsIn && Input.GetKeyDown(KeyCode.Q))
-    {
-      OpenShop();
-    }
-    if (playerIsIn && Input.GetKeyDown(KeyCode.Escape))
-    {
-      CloseShop();
-    }
   }
 
   private void OnTriggerExit(Collider other)
@@ -109,104 +162,73 @@ public class BeeUpgradeShop : MonoBehaviour
     }
   }
 
-  public void GiveSpeedStat()
+  private void CheckIfStatIsMaxed(BeeStat currentStat)
   {
-    canBuyItem = false;
-    itemPrice = speedStatUpgradePrice[statManager.GetSpeedStatLevel() - 1];
-    if (pollenManager.GetPollenCount() >= itemPrice)
+    if (statManager.GetStatLevel(currentStat) >= statUpgradePrice[currentStat].Length)
     {
-      canBuyItem = true;
+      MaxStatPrice(currentStat);
     }
-    if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
+  }
 
-    int nextLevelPrice = speedStatUpgradePrice[statManager.GetSpeedStatLevel()];
-
-    pollenManager.AddPollen(-itemPrice);
-    statManager.AddSpeedStat();
-
-    if (speedStatUpgradePrice.Length - 1 >= statManager.GetSpeedStatLevel())
+  private void UpdateNextPriceText(BeeStat currentStat)
+  {
+    if (statUpgradePrice[currentStat].Length - 1 >= statManager.GetStatLevel(currentStat))
     {
-      UpdateSpeedPriceText(nextLevelPrice.ToString());
+      UpdatePriceText(currentStat, nextLevelPrice.ToString());
     }
     else
     {
-      UpdateSpeedPriceText("");
+      UpdatePriceText(currentStat, " ");
     }
+  }
 
-    if (statManager.GetSpeedStatLevel() >= speedStatUpgradePrice.Length)
+  private int CalculatePrice(BeeStat stat)
+  {
+    return statUpgradePrice[stat][statManager.GetStatLevel(stat) - 1];
+  }
+
+  private bool CheckIfCanBuyItem(int priceOfItem)
+  {
+    if (pollenManager.GetPollenCount() >= priceOfItem)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  private BeeStat CheckForStringStatInput(string input)
+  {
+    if (input == "Speed")
+    {
+      return BeeStat.speedStat;
+    }
+    else if (input == "Efficiency")
+    {
+      return BeeStat.efficiencyStat;
+    }
+    else
+    {
+      //last will always be carry
+      return BeeStat.pollenCarryStat;
+    }
+  }
+
+  private void MaxStatPrice(BeeStat stat)
+  {
+    if (stat == BeeStat.speedStat)
     {
       speedMaxed = true;
     }
-  }
-
-
-  public void GiveEfficiencyStat()
-  {
-    canBuyItem = false;
-    itemPrice = speedStatUpgradePrice[statManager.GetEfficiencyStatLevel() - 1];
-    if (pollenManager.GetPollenCount() >= itemPrice)
-    {
-      canBuyItem = true;
-    }
-    if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
-
-    int nextLevelPrice = speedStatUpgradePrice[statManager.GetEfficiencyStatLevel()];
-
-    pollenManager.AddPollen(-itemPrice);
-    statManager.AddEfficiencyStat();
-
-    if (speedStatUpgradePrice.Length - 1 >= statManager.GetEfficiencyStatLevel())
-    {
-      UpdateEfficiencyPriceText(nextLevelPrice.ToString());
-    }
-    else
-    {
-      UpdateEfficiencyPriceText("");
-    }
-
-    if (statManager.GetEfficiencyStatLevel() >= speedStatUpgradePrice.Length)
+    if (stat == BeeStat.efficiencyStat)
     {
       efficiencyMaxed = true;
     }
-  }
-
-  public void GiveCarryStat()
-  {
-    canBuyItem = false;
-    itemPrice = speedStatUpgradePrice[statManager.GetCarryStatLevel() - 1];
-    if (pollenManager.GetPollenCount() >= itemPrice)
-    {
-      canBuyItem = true;
-    }
-    if (!canBuyItem) { print("cannot buy, not enough pollen"); return; }
-
-    int nextLevelPrice = speedStatUpgradePrice[statManager.GetCarryStatLevel()];
-
-    pollenManager.AddPollen(-itemPrice);
-    statManager.AddCarryStat();
-
-    if (speedStatUpgradePrice.Length - 1 >= statManager.GetCarryStatLevel())
-    {
-      UpdateCarryPriceText(nextLevelPrice.ToString());
-    }
-    else
-    {
-      UpdateCarryPriceText("");
-    }
-
-    if (statManager.GetCarryStatLevel() >= speedStatUpgradePrice.Length)
+    if (stat == BeeStat.pollenCarryStat)
     {
       carryMaxed = true;
     }
-  }
-
-  public void OpenShop()
-  {
-    shopUI.enabled = true;
-  }
-
-  public void CloseShop()
-  {
-    shopUI.enabled = false;
   }
 }

@@ -606,7 +606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d15a2734719cc4f86272fd5d5ac337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopType: 0
   shopUI: {fileID: 0}
   beeGuardCostText: {fileID: 0}
   flowerCostText: {fileID: 0}
@@ -658,14 +657,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16213946697983e419a8af7d44c81292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopType: 0
   shopUI: {fileID: 0}
   speedStatText: {fileID: 0}
   efficiencyStatText: {fileID: 0}
   carryStatText: {fileID: 0}
-  speedStatUpgradePrice: 140000001e000000320000004600000064000000
-  efficiencyStatUpgradePrice: 140000001e000000320000004600000064000000
-  carryStatUpgradePrice: 140000001e000000320000004600000064000000
+  speedStatUpgradePrice: 0a0000001e00000032000000460000005a000000
+  efficiencyStatUpgradePrice: 0a0000001e00000032000000460000005a000000
+  carryStatUpgradePrice: 0a0000001e00000032000000460000005a000000
 --- !u!64 &1796254338
 MeshCollider:
   m_ObjectHideFlags: 0

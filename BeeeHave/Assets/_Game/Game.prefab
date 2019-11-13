@@ -88,10 +88,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bearPrefab: {fileID: 0}
-  img: {fileID: 0}
+  image: {fileID: 0}
+  attackIntervals:
+  - 60
+  - 50
+  - 45
+  - 35
+  - 30
+  - 25
+  - 20
+  - 10
+  attackIntervalIndex: 0
   counter: 0
   timeTillAttack: 0
   countingTime: 1
+  beatRepelentEffectivness: 30
   sentAttack: 0
 --- !u!1 &4933256416058251905
 GameObject:

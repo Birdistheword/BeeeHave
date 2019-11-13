@@ -1,4 +1,4 @@
-public enum BeeStats
+public enum BeeStat
 {
   speedStat,
   efficiencyStat,

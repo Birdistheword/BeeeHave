@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class StatManager : MonoBehaviour
 {
-  [SerializeField] int speedStatLevel = 1;
-  [SerializeField] int efficiencyStatLevel = 1;
-  [SerializeField] int PollenCarryStatLevel = 1;
+  Dictionary<BeeStat, int> statLevel = new Dictionary<BeeStat, int>()
+  {
+  {BeeStat.speedStat , 1},
+  {BeeStat.efficiencyStat , 1},
+  {BeeStat.pollenCarryStat , 1 }
+  };
+
+  [SerializeField] int speedStatLevel;
+  [SerializeField] int efficiencyStatLevel;
+  [SerializeField] int PollenCarryStatLevel;
 
   [SerializeField] int pollenEfficiencyStatValue = 2;
 
@@ -14,8 +21,17 @@ public class StatManager : MonoBehaviour
 
   [SerializeField] int speedStatValue = 1;
 
+  [SerializeField] StatProgression statProgression;
+
   PlayerMovementSimple playerMovementSimple;
   PollenManager pollenManager;
+
+  private void Update()
+  {
+    speedStatLevel = statLevel[BeeStat.speedStat];
+    efficiencyStatLevel = statLevel[BeeStat.efficiencyStat];
+    PollenCarryStatLevel = statLevel[BeeStat.pollenCarryStat];
+  }
 
   private void Start()
   {
@@ -26,7 +42,6 @@ public class StatManager : MonoBehaviour
   public void AddSpeedStat()
   {
     speedStatLevel++;
-    playerMovementSimple.AddSpeed(speedStatValue);
   }
 
   public void AddEfficiencyStat()
@@ -39,6 +54,33 @@ public class StatManager : MonoBehaviour
   {
     PollenCarryStatLevel++;
     pollenManager.IncreaseMaxAmountOfPollen(pollenCarryStatValue);
+  }
+
+  public void AddStat(BeeStat stat)
+  {
+    statLevel[stat]++;
+    IncreaseStat(stat);
+  }
+
+  public void IncreaseStat(BeeStat stat)
+  {
+    if (stat == BeeStat.speedStat)
+    {
+      playerMovementSimple.AddSpeed(speedStatValue);
+    }
+    if (stat == BeeStat.efficiencyStat)
+    {
+      pollenManager.IncreasePollenEfficiency(pollenEfficiencyStatValue);
+    }
+    if (stat == BeeStat.pollenCarryStat)
+    {
+      pollenManager.IncreaseMaxAmountOfPollen(pollenCarryStatValue);
+    }
+  }
+
+  public int GetStatLevel(BeeStat stat)
+  {
+    return statLevel[stat];
   }
 
   public int GetSpeedStatLevel()

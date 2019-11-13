@@ -408,6 +408,7 @@ MonoBehaviour:
   firstAttack: 1
   hasRetreated: 0
   currentlyMoving: 0
+  health: 0100000002000000020000000300000003000000030000000400000004000000
 --- !u!136 &8182273835944474780
 CapsuleCollider:
   m_ObjectHideFlags: 0

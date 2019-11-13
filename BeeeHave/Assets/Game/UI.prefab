@@ -2482,14 +2482,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: GiveSpeedStat
-        m_Mode: 1
+        m_MethodName: GiveStat
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Speed
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6765659547201315406
@@ -4332,14 +4332,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: GiveCarryStat
-        m_Mode: 1
+        m_MethodName: GiveStat
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Carry
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6765659547568173591
@@ -9061,14 +9061,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: GiveEfficiencyStat
-        m_Mode: 1
+        m_MethodName: GiveStat
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Efficiency
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6765659548631817041
