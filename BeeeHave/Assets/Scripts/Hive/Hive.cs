@@ -59,7 +59,6 @@ public class Hive : MonoBehaviour
     if (healthBarCounter < 5 && damage > 0)
     {
       HealthBars[healthBarCounter].SetActive(false);
-      print(HealthBars[healthBarCounter]);
       healthBarCounter++;
     }
     health -= damage;

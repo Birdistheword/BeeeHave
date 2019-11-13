@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovementSimple : MonoBehaviour
 {
@@ -10,9 +11,12 @@ public class PlayerMovementSimple : MonoBehaviour
   [SerializeField] AudioSource dashSFX;
   [SerializeField] AudioSource moveSFX;
 
+  [SerializeField] Image image;
+
   private Vector3 Move;
 
-  private float hSpeed, vSpeed, dashCd = 0f;
+  private float hSpeed, vSpeed;
+  [SerializeField] float dashCd = 0f;
   private bool dashing = false;
 
 
@@ -27,6 +31,11 @@ public class PlayerMovementSimple : MonoBehaviour
   private void Update()
   {
     Move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+
+    if (!dashing)
+    {
+      image.fillAmount = (dashCooldown - dashCd) / dashCooldown;
+    }
 
 
     if (Input.GetKeyDown(KeyCode.LeftShift))

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TimeToBearAttack : MonoBehaviour
 {
   [SerializeField] GameObject bearPrefab;
-  [SerializeField] Image img;
+  [SerializeField] Image image;
 
 
   public float[] attackIntervals = { 60, 50, 45, 35, 30, 25, 20, 10 };
@@ -38,7 +38,7 @@ public class TimeToBearAttack : MonoBehaviour
     if (gameState.STATE == GameStates.GameState.Idle)
     {
       counter += Time.deltaTime;
-      img.fillAmount = (timeTillAttack - counter) / timeTillAttack;
+      image.fillAmount = (timeTillAttack - counter) / timeTillAttack;
     }
 
     if (gameState.STATE == GameStates.GameState.Idle && counter >= timeTillAttack && !sentAttack)
@@ -51,7 +51,7 @@ public class TimeToBearAttack : MonoBehaviour
       gameState.STATE = GameStates.GameState.Idle;
       counter = 0f;
       ChooseNewAttackInterval();
-      img.fillAmount = 1;
+      image.fillAmount = 1;
     }
   }
 
@@ -82,6 +82,6 @@ public class TimeToBearAttack : MonoBehaviour
 
   public void BearRepelent()
   {
-    counter -= beatRepelentEffectivness;
+    timeTillAttack += beatRepelentEffectivness;
   }
 }
