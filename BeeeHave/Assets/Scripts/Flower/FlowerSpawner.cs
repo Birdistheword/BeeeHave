@@ -15,6 +15,7 @@ public class FlowerSpawner : MonoBehaviour
   [SerializeField] List<FlowerSpawnPoint> flowerPointList;
   [SerializeField] GameObject flowerPrefab;
   GameObject flowerSpawnPoint;
+  [SerializeField] int flowerSpawnAmount = 4;
 
   [SerializeField] float flowerSpawnHeight = 1;
 
@@ -52,7 +53,7 @@ public class FlowerSpawner : MonoBehaviour
   {
     flowerSpawnPoints = new GameObject[xRange, zRange];
     SpawnFlowerPoints();
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < flowerSpawnAmount; i++)
     {
       SpawnFlower(flowerPrefab);
     }

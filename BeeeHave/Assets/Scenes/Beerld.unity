@@ -1430,11 +1430,6 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 8286302207295467562}
-    - target: {fileID: 4933256415687221484, guid: 324772f96b3e84942ae94c392c95e44b,
-        type: 3}
-      propertyPath: attackIntervals.Array.data[0]
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 324772f96b3e84942ae94c392c95e44b, type: 3}
 --- !u!1001 &1586457531
@@ -1694,6 +1689,11 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 782456523}
+    - target: {fileID: 654230143070299936, guid: abdffe57550968248863e09bbd90bbcb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eede557b5e19612419cc1bcc635a14b6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdffe57550968248863e09bbd90bbcb, type: 3}
 --- !u!1001 &4744271253679947017
