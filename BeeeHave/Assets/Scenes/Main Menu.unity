@@ -320,5 +320,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Back
       objectReference: {fileID: 0}
+    - target: {fileID: 3136222615421872467, guid: 38235922cc5e97f4a9b9de68c262a8d2,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38235922cc5e97f4a9b9de68c262a8d2, type: 3}
